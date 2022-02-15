@@ -13,17 +13,17 @@
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="home.html"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
+				<a class="navbar-brand" href="{{ route('landing') }}"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item active">
-							<a class=" btn btn-outline-light nav-link" id="tombolputih" href="register.html">Register</span></a>
+							<a class=" btn btn-outline-light nav-link" id="tombolputih" href="{{ route('register') }}">Register</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link active btn  tombolabu" href="loginpage.html">Login</span></a>
+							<a class="nav-link active btn  tombolabu" href="{{ route('login') }}">Login</span></a>
 						</li>
 					</ul>
 				</div>
@@ -183,7 +183,7 @@
 						<a href=""><i class="fa fa-youtube-play link-light icon" aria-hidden="true"></i></a>
 						<a href=""><i class="fa fa-facebook-official link-light" aria-hidden="true"></i></a>
 						<div class="text-center">
-							<p>E-Reservation &copy; 2022 --All Rights Reserved</p>
+							<p>E-Reservation &copy; <?= date('Y') ?> --All Rights Reserved</p>
 						</div>
 					</div>
 					<div class="col justify-content-end">
