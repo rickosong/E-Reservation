@@ -27,7 +27,7 @@
 					<form class="form-container">
 						<div class="form-group mb-3">
 							<h2>REGISTRASI</h2>
-							<br /><br />
+							<br />
 							<label for="username" class="teks-kolom">Username:</label>
 							<input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username" />
 						</div>
@@ -40,13 +40,17 @@
 							<input type="password" class="form-control" id="konfirmasipassword" placeholder="Konfirmasi Password" />
 						</div>
 						<div class="form-group mb-3">
-							<label for="password" class="teks-kolom">Nama:</label>
-							<input type="password" class="form-control" id="password" placeholder="Masukkan Nama Lengkap Anda" />
+							<label for="nama" class="teks-kolom">Nama:</label>
+							<input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" />
 						</div>
 						<div class="form-group mb-3">
-							<label for="password" class="teks-kolom">No.HP:</label>
-							<input type="password" class="form-control" id="password" placeholder="Masukkan Nomor HP Anda" />
-							<a href="loginpage.html"><small class="text-cl-sm">Sudah punya akun? Klik DIsini Untuk Login!</small></a
+							<label for="email" class="teks-kolom">Email:</label>
+							<input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" />
+						</div>
+						<div class="form-group mb-3">
+							<label for="nomor" class="teks-kolom">No.HP:</label>
+							<input type="text" class="form-control" id="nomor" placeholder="Masukkan Nomor HP Anda" />
+							<a href="{{ route('login') }}"><small class="text-cl-sm">Sudah punya akun? Klik DIsini Untuk Login!</small></a
 							><br />
 							<a href="register.html"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
