@@ -51,7 +51,6 @@
 	</body>
 
 	<!-- jQuery -->
-	<script src="js/jquery-3.5.1.js"></script>
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
