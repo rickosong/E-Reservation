@@ -19,6 +19,7 @@ use App\Http\Controllers\User\HomeController;
 
 // Auth
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'regisMember']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 

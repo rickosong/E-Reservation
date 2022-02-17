@@ -24,40 +24,40 @@
 
 			<section class="row justify-content-end">
 				<section class="col-sm-12 col-lg-5 col-md-12">
-					<form class="form-container">
+					<form action="/register" method="post" class="form-container">
+						@csrf
 						<div class="form-group mb-3">
 							<h2>REGISTRASI</h2>
 							<br />
 							<label for="username" class="teks-kolom">Username:</label>
-							<input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username" />
+							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required/>
 						</div>
 						<div class="form-group mb-3">
 							<label for="password" class="teks-kolom">Password:</label>
-							<input type="password" class="form-control" id="password" placeholder="Masukkan Password" />
+							<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required/>
 						</div>
-						<div class="form-group mb-3">
+						<!-- <div class="form-group mb-3">
 							<label for="konfirmasipassword" class="teks-kolom">Konfirmasi Password:</label>
-							<input type="password" class="form-control" id="konfirmasipassword" placeholder="Konfirmasi Password" />
-						</div>
+							<input type="password" class="form-control" id="konfirmasipassword"name="confirm" placeholder="Konfirmasi Password" required/>
+						</div> -->
 						<div class="form-group mb-3">
 							<label for="nama" class="teks-kolom">Nama:</label>
-							<input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" />
+							<input type="text" class="form-control" id="nama" name="name" placeholder="Masukkan Nama Lengkap Anda" required/>
 						</div>
 						<div class="form-group mb-3">
 							<label for="email" class="teks-kolom">Email:</label>
-							<input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" />
+							<input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required/>
 						</div>
 						<div class="form-group mb-3">
 							<label for="nomor" class="teks-kolom">No.HP:</label>
-							<input type="text" class="form-control" id="nomor" placeholder="Masukkan Nomor HP Anda" />
+							<input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan Nomor HP Anda" required />
 							<a href="{{ route('login') }}"><small class="text-cl-sm">Sudah punya akun? Klik DIsini Untuk Login!</small></a
 							><br />
 							<a href="register.html"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
 						<div class="d-grid gap-2">
-							<a href="loginpage.html" type="submit" class="tombol btn btn-block"
-								><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Daftar</a
-							>
+							<button type="submit" class="tombol btn btn-block" 
+								><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Daftar</button>
 						</div>
 					</form>
 				</section>
