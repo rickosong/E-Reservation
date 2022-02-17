@@ -18,9 +18,9 @@ use App\Http\Controllers\User\HomeController;
 */
 
 // Auth
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'regisMember']);
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'loginMember']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
