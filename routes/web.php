@@ -21,8 +21,10 @@ use App\Http\Controllers\User\HomeController;
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'regisMember']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'loginMember']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // User
-Route::get('/', [LandingController::class, 'index'])->name('landing');
-Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
+Route::get('/', [LandingController::class, 'index'])->name('landing')->middleware('guest');;
+Route::get('/homepage', [HomeController::class, 'index'])->name('homepage')->middleware('auth');

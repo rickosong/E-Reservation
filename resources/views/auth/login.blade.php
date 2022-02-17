@@ -24,25 +24,32 @@
 
 			<section class="row justify-content-end">
 				<section class="col-sm-12 col-lg-5 col-md-12">
-					<form class="form-container">
+					<form action="/login" method="post" class="form-container">
 						<div class="form-group mb-3">
+							@csrf
 							<h2>LOGIN</h2>
 							<br /><br />
 							<label for="username" class="teks-kolom">Username:</label>
-							<input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username" />
+							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required />
 						</div>
 						<div class="form-group mb-3">
 							<label for="password" class="teks-kolom">Password</label>
-							<input type="password" class="form-control" id="password" placeholder="Masukkan Password" />
+							<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required />
 							<a href="{{ route('register') }}"><small class="text-cl-sm">Gak punya akun? Daftar Sekarang!</small></a
 							><br />
 							<a href="searchemail.html"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
 						<div class="d-grid gap-2">
-							<a href="home.html" class="btn tombol" type="submit"
-								><span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Masuk</a
+							<button class="btn tombol" type="submit"
+								><span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Masuk</button
 							>
+						</div><br>
+
+						@if(session()->has('loginError'))
+						<div class="alert alert-danger" role="alert">
+							  {{ session('loginError') }}
 						</div>
+						@endif
 					</form>
 				</section>
 			</section>
