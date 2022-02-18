@@ -29,6 +29,13 @@
 							@csrf
 							<h2>LOGIN</h2>
 							<br /><br />
+
+							@if(session()->has('success'))
+							<div class="alert alert-success" role="alert">
+								  {{ session('success') }}
+							</div>
+							@endif
+
 							<label for="username" class="teks-kolom">Username:</label>
 							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required />
 						</div>

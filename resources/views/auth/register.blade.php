@@ -29,8 +29,20 @@
 						<div class="form-group mb-3">
 							<h2>REGISTRASI</h2>
 							<br />
+
+							@if(session()->has('regisError'))
+							<div class="alert alert-danger" role="alert">
+								  {{ session('regisError') }}
+							</div>
+							@endif
+							
 							<label for="username" class="teks-kolom">Username:</label>
-							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required/>
+							<input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required/>
+							@error('username')
+							<div class="invalid-feedback">
+								{{$message}}
+							  </div>
+							@enderror
 						</div>
 						<div class="form-group mb-3">
 							<label for="password" class="teks-kolom">Password:</label>
@@ -45,8 +57,13 @@
 							<input type="text" class="form-control" id="nama" name="name" placeholder="Masukkan Nama Lengkap Anda" required/>
 						</div>
 						<div class="form-group mb-3">
-							<label for="email" class="teks-kolom">Email:</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required/>
+							<label for="email" class="teks-kolom ">Email:</label>
+							<input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan email Anda" required/>
+							@error('email')
+							<div class="invalid-feedback">
+								{{$message}}
+							  </div>
+							@enderror
 						</div>
 						<div class="form-group mb-3">
 							<label for="nomor" class="teks-kolom">No.HP:</label>
@@ -59,12 +76,6 @@
 							<button type="submit" class="tombol btn btn-block" 
 								><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Daftar</button>
 						</div><br>
-
-						@if(session()->has('regisError'))
-						<div class="alert alert-danger" role="alert">
-							  {{ session('regisError') }}
-						</div>
-						@endif
 					</form>
 				</section>
 			</section>
