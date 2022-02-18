@@ -10,43 +10,8 @@
     <link rel="stylesheet" href="../css/profile.css" />
   </head>
   <body>
-		<!-- navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="home.html"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item active">
-							<a class="nav-link active" href="home.html">Home</span></a>
-						</li>
-                        <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							  Seputar Ruangan
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <li><a class="dropdown-item" href="ruangan.html">Ruangan</a></li>
-							  <li><a class="dropdown-item" href="pesananmember.html">Ruangan yang Dipesan</a></li>
-							</ul>
-						<li class="nav-item active">
-							<a class="nav-link active" href="aboutpage.html">Tentang Kami</a>
-						</li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle" src="../img/person-circle.svg" alt="user photo">
-                              </a>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.html"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>
-                                <li><a class="dropdown-item" href="landingpage.html"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Log Out</a></li>
-							  </ul>
-                        </li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- navbar end -->
+
+	@include('partials.navbar')
 
      <!--profil start-->
      <div class="container emp-profile">
