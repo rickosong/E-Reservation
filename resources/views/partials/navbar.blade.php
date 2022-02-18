@@ -19,7 +19,7 @@
 							  <li><a class="dropdown-item" href="{{ route('pesananMember') }}">Ruangan yang Dipesan</a></li>
 							</ul>
 						<li class="nav-item active">
-							<a class="nav-link active" href="{{ route('aboutPage') }}">Tentang Kami</a>
+							<a class="nav-link active" href="{{ route('aboutpage') }}">Tentang Kami</a>
 						</li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -159,7 +159,7 @@
 		</div>
 		<!-- card and content end-->
 
-		@include('partials.navbar')
+		@include('partials.footer')
 
 		<!-- jQuery -->
 		<script src="../js/jquery-3.6.0.min.js"></script>
