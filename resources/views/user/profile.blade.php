@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="col-md-3 text-end">
-						<a class="btn btn-orange" href="editprofile.html">Edit Profile</a>
+						<a class="btn btn-orange" href="{{ route('editprofile') }}">Edit Profile</a>
 					</div>
 				</div>
 				<div class="row">

@@ -34,4 +34,5 @@ Route::get('/homepage', [HomeController::class, 'index'])->name('homepage')->mid
 Route::get('/allruangan', [allRuanganController::class, 'index'])->name('allRuangan')->middleware('auth');
 Route::get('/pesananmember', [pesananMemberController::class, 'index'])->name('pesananMember')->middleware('auth');
 Route::get('/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/editprofile', [profileController::class, 'viewEditProfile'])->name('editprofile')->middleware('auth');
 Route::get('/aboutpage', [HomeController::class, 'aboutPage'])->name('aboutpage')->middleware('auth');

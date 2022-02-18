@@ -10,4 +10,12 @@ class profileController extends Controller
     public function index(){
         return view('user.profile');
     }
+
+    public function viewEditProfile(){
+        return view('user.editprofile');
+    }
+
+    public function update(){
+
+    }
 }

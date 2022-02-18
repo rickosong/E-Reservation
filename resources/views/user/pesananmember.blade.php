@@ -53,7 +53,7 @@
                     <div class="row">
                         <img class="col-lg-2 img-thumbnail" src="../img/img2.jpg" alt="">
                         <div class="col-lg-10">
-                            <h5 class="card-title">Ruang 3/h5>
+                            <h5 class="card-title">Ruang 3</h5>
                             <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias sapiente impedit aut eius ut culpa qui eum, error iste ex mollitia, dolorem provident obcaecati eaque laborum, optio inventore iure vitae.</p>
                             <a href="#" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
                         </div>
