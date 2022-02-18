@@ -10,47 +10,8 @@
 		<title>Halaman Home</title>
 	</head>
 	<body>
-		<!-- navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="{{ route('homepage') }}"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item active">
-							<a class="nav-link active" href="{{ route('homepage') }}">Home</span></a>
-						</li>
-                        <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							  Seputar Ruangan
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <li><a class="dropdown-item" href="ruangan.html">Ruangan</a></li>
-							  <li><a class="dropdown-item" href="pesananmember.html">Ruangan yang Dipesan</a></li>
-							</ul>
-						<li class="nav-item active">
-							<a class="nav-link active" href="aboutpage.html">Tentang Kami</a>
-						</li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle" src="../img/person-circle.svg" alt="user photo">
-                              </a>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.html"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>
-
-								<form action="{{ route('logout') }}" method="post">
-									@csrf
-									<button type="submit" class="dropdown-item"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Log Out</button>
-								</form>
-							  </ul>
-                        </li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- navbar end -->
+		
+		@include('partials.navbar')
 
 		<!-- carousel -->
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -192,30 +153,7 @@
 		</div>
 		<!-- Maps end -->
 
-		<!-- Footer -->
-			<div class="card-footer">
-				<div class="container">
-					<div class="row">
-						<div class="col justify-content-start">
-							<h3 class=""><img src="../img/smkn2.png" alt=""><span class="space"></span> E-Reservation</h3>
-						</div>
-						<div class="col justify-content-center text-center">
-							<a href=""><i class="fa fa-instagram link-light icon" aria-hidden="true"></i></a>
-							<a href=""><i class="fa fa-youtube-play link-light icon" aria-hidden="true"></i></a>
-							<a href=""><i class="fa fa-facebook-official link-light" aria-hidden="true"></i></a>
-							<div class="text-center">
-								<p>E-Reservation &copy; <?= date('Y') ?> --All Rights Reserved</p>
-							</div>
-						</div>
-						<div class="col justify-content-end">
-							<h6 class="footer-t text-end">Selamat Datang</h6>
-							<h6 class="text-end">Username</h5>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		<!-- Footer End -->
+		@include('partials.footer')
 
 		<!-- jQuery -->
 		<script src="js/jquery-3.6.0.min.js"></script>
