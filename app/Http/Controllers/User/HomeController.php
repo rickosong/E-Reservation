@@ -10,4 +10,8 @@ class HomeController extends Controller
     public function index(){
         return view('user.home');
     }
+
+    public function aboutPage(){
+        return view('user.aboutpage');
+    }
 }
