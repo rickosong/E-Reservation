@@ -15,18 +15,18 @@
 							  Seputar Ruangan
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <li><a class="dropdown-item" href="ruangan.html">Ruangan</a></li>
-							  <li><a class="dropdown-item" href="pesananmember.html">Ruangan yang Dipesan</a></li>
+							  <li><a class="dropdown-item" href="{{ route('allRuangan') }}">Ruangan</a></li>
+							  <li><a class="dropdown-item" href="{{ route('pesananMember') }}">Ruangan yang Dipesan</a></li>
 							</ul>
 						<li class="nav-item active">
-							<a class="nav-link active" href="aboutpage.html">Tentang Kami</a>
+							<a class="nav-link active" href="{{ route('aboutPage') }}">Tentang Kami</a>
 						</li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img class="rounded-circle" src="../img/person-circle.svg" alt="user photo">
                               </a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.html"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile') }}"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>
 
 								<form action="{{ route('logout') }}" method="post">
 									@csrf
