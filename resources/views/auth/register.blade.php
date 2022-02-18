@@ -36,10 +36,10 @@
 							<label for="password" class="teks-kolom">Password:</label>
 							<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required/>
 						</div>
-						<!-- <div class="form-group mb-3">
+						<div class="form-group mb-3">
 							<label for="konfirmasipassword" class="teks-kolom">Konfirmasi Password:</label>
-							<input type="password" class="form-control" id="konfirmasipassword"name="confirm" placeholder="Konfirmasi Password" required/>
-						</div> -->
+							<input type="password" class="form-control" id="konfirmasipassword"name="confirmPass" placeholder="Konfirmasi Password" required/>
+						</div> 
 						<div class="form-group mb-3">
 							<label for="nama" class="teks-kolom">Nama:</label>
 							<input type="text" class="form-control" id="nama" name="name" placeholder="Masukkan Nama Lengkap Anda" required/>
@@ -58,7 +58,13 @@
 						<div class="d-grid gap-2">
 							<button type="submit" class="tombol btn btn-block" 
 								><span><i class="fa fa-user-plus" aria-hidden="true"></i></span> Daftar</button>
+						</div><br>
+
+						@if(session()->has('regisError'))
+						<div class="alert alert-danger" role="alert">
+							  {{ session('regisError') }}
 						</div>
+						@endif
 					</form>
 				</section>
 			</section>

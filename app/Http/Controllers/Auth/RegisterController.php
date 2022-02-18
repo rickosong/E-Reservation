@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -13,7 +14,25 @@ class RegisterController extends Controller
     }
 
     public function regisMember(Request $request){
+        $request->validate([
+            'password' => 'required|min:3|max:255'
+        ]);
+
         $member = new User();
+
+        // cek password
+        $password = $request->password;
+        $confirmPass = $request->confirmPass;
+
+        if ($confirmPass !== $password) {
+            return back()->with('regisError', 'gagal registrasi');
+            return false;
+        }
+        // else{
+        //     dd('regis berhasil');
+        // }
+
+        // encrypted password
         $password = bcrypt($request->password);
 
         $member->username = $request->username;

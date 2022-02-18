@@ -12,13 +12,13 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function loginMember(Request $request){
-        $request->validate( [
+    public function storeLogin(Request $request){
+        $credentials = $request->validate( [
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($request->only('username', 'password'))) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/homepage');
