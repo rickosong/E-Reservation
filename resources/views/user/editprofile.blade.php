@@ -30,8 +30,8 @@
 					<div class="col-md-6">
 						<div class="profile-head">
 							<div class="form-group mb-3">
-								<label for="username" class="teks-kolom">Nama Lengkap:</label>
-								<input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" required />
+								<label for="name" class="teks-kolom">Nama Lengkap:</label>
+								<input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name" required value=""/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="tanggal" class="teks-kolom">Tanggal Lahir:</label>
