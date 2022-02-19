@@ -52,7 +52,7 @@
 			<br><br>
 			<h1 class="text-lg-center text-md-center text-sm-center">Ruangan</h1>
 			<br><br>
-			<h5 class="text-lg-end text-md-end text-sm-end click-postingan"><a href="ruangan.html">Semua Postingan ></a></h5>
+			<h5 class="text-lg-end text-md-end text-sm-end click-postingan"><a href="{{ route('allRuangan') }}">Semua Postingan ></a></h5>
 			<div class="row">
 				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
 					<div class="card h-auto">
