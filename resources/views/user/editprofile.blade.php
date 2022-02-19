@@ -35,19 +35,19 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="tanggal" class="teks-kolom">Tanggal Lahir:</label>
-								<input type="datetime" class="form-control" id="tanggal" placeholder="Masukkan Password" required />
+								<input type="datetime" class="form-control" id="tanggal" placeholder="Masukkan Tanggal Lahir" required />
 							</div>
 							<div class="form-group mb-3">
 								<label for="telepon" class="teks-kolom">No. Telepon:</label>
-								<input type="number" class="form-control" id="telepon" placeholder="Masukkan Password" required />
+								<input type="number" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda" required />
 							</div>
 							<div class="form-group mb-3">
 								<label for="email" class="teks-kolom">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Masukkan Password" required />
+								<input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" required />
 							</div>
 							<div class="form-group mb-3">
 								<label for="alamat" class="teks-kolom">Alamat:</label><br />
-								<textarea name="" id="alamat" cols="50" rows="3" placeholder="Masukkan Alamat" required></textarea>
+								<textarea name="" id="alamat" cols="50" rows="3" placeholder="Masukkan Alamat Anda" required></textarea>
 							</div>
 						</div>
 					</div>

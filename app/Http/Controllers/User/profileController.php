@@ -12,7 +12,9 @@ class profileController extends Controller
     }
 
     public function viewEditProfile(){
-        return view('user.editprofile');
+        return view('user.editprofile', [
+            // 'users' => auth()->user()
+        ]);
     }
 
     public function update(){

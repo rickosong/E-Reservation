@@ -27,8 +27,8 @@
 					</div>
 					<div class="col-md-6">
 						<div class="profile-head">
-							<h5>Nama Lengkap</h5>
-							<h6>Username</h6>
+							<h5>{{ auth()->user()->name }}</h5>
+							<h6>{{ auth()->user()->username }}</h6>
 							<br>
 							<hr color="black">
 						</div>
@@ -47,7 +47,7 @@
 										<label>Nama</label>
 									</div>
 									<div class="col-md-6">
-										<p>Nama Lengkap</p>
+										<p>{{ auth()->user()->name }}</p>
 									</div>
 								</div>
 								<div class="row">
@@ -63,7 +63,7 @@
 										<label>No Telepon.</label>
 									</div>
 									<div class="col-md-6">
-										<p>0819-9861-6849</p>
+										<p>{{ auth()->user()->phone_number }}</p>
 									</div>
 								</div>
 								<div class="row">
@@ -71,7 +71,7 @@
 										<label>Email</label>
 									</div>
 									<div class="col-md-6">
-										<p>username@gmail.com</p>
+										<p>{{ auth()->user()->email }}</p>
 									</div>
 								</div>
 								<div class="row">
