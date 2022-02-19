@@ -16,6 +16,9 @@
      <!--profil start-->
      <div class="container emp-profile">
 			<form method="post">
+				@foreach ($profiles as $profile)
+					
+				
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
@@ -55,7 +58,7 @@
 										<label>Tanggal Lahir</label>
 									</div>
 									<div class="col-md-6">
-										<p>04 April 2004</p>
+										<p>{{ $profile->birthday }}</p>
 									</div>
 								</div>
 								<div class="row">
@@ -79,13 +82,14 @@
 										<label>Alamat</label>
 									</div>
 									<div class="col-md-6">
-										<p>Jalan Tanpa Ujung</p>
+										<p>{{ $profile->addres }}</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
 			</form>
 		</div>
 	<!-- profil end -->

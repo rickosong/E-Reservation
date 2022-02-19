@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
+use App\Models\Profile;
 
 class RegisterController extends Controller
 {
@@ -44,6 +45,15 @@ class RegisterController extends Controller
         $member->phone_number = $request->nomor;
 
         $member->save();
+
+        Profile::create(
+            [
+                'user_id' => $member->id,
+                'birthday' => 'silahkan isi tanggal lahir anda',
+                'addres' => 'silahkan isi alamat anda',
+                'image' => '',
+            ]
+        );
 
         $request->session()->flash('success', 'Registrasi Berhasil, Silahkan Login');
 
