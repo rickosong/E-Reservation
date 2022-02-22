@@ -15,7 +15,7 @@
                     </div>
                     <div class="col justify-content-end">
                         <h6 class="footer-t text-end">Selamat Datang</h6>
-                        <h6 class="text-end">Username</h5>
+                        <h6 class="text-end">{{auth()->user()->name}}</h5>
                     </div>
 
                 </div>
