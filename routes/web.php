@@ -20,6 +20,18 @@ use App\Http\Controllers\User\profileController;
 |
 */
 
+Route::get('/homepage/posts', function(){
+    return view('reservation.post');
+})->name('post');
+
+Route::get('/homepage/pesan', function(){
+    return view('reservation.formpemesanan');
+})->name('formpemesanan');
+
+Route::get('/homepage/invoice', function(){
+    return view('reservation.buktipemesanan');
+})->name('invoice');
+
 // Auth
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'regisMember']);
@@ -31,8 +43,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // User
 Route::get('/', [LandingController::class, 'index'])->name('landing')->middleware('guest');;
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage')->middleware('auth');
-Route::get('/allruangan', [allRuanganController::class, 'index'])->name('allRuangan')->middleware('auth');
-Route::get('/pesananmember', [pesananMemberController::class, 'index'])->name('pesananMember')->middleware('auth');
-Route::get('/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
-Route::get('/editprofile', [profileController::class, 'viewEditProfile'])->name('editprofile')->middleware('auth');
-Route::get('/aboutpage', [HomeController::class, 'aboutPage'])->name('aboutpage')->middleware('auth');
+Route::get('/homepage/allruangan', [allRuanganController::class, 'index'])->name('allRuangan')->middleware('auth');
+Route::get('/homepage/pesananmember', [pesananMemberController::class, 'index'])->name('pesananMember')->middleware('auth');
+Route::get('/homepage/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/homepage/profile/edit', [profileController::class, 'viewEditProfile'])->name('editprofile')->middleware('auth');
+Route::get('/homepage/aboutpage', [HomeController::class, 'aboutPage'])->name('aboutpage')->middleware('auth');

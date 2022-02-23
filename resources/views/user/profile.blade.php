@@ -16,13 +16,14 @@
      <!--profil start-->
      <div class="container emp-profile">
 			<form method="post">
+				@csrf
 				@foreach ($profiles as $profile)
 					
 				
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
-							<img class="logo" src="../img/person-circle.svg" alt="logo user" title="logo user"/>
+							<img class="logo" src="../img/person-circle.svg" alt=""/>
 							<br>
 							<small>Mohon gunakan gambar yang ukurannya 1:1 agar menjadi lebih bagus</small>
 							<br>
@@ -37,7 +38,7 @@
 						</div>
 					</div>
 					<div class="col-md-3 text-end">
-						<a class="btn btn-orange" href="{{ route('editprofile') }}">Edit Profile</a>
+						<a class="btn btn-orange" href="{{ route('editprofile', auth()->user()->id) }}">Edit Profile</a>
 					</div>
 				</div>
 				<div class="row">
