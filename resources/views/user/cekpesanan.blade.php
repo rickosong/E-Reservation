@@ -4,9 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../css/cekpesanan.css" />
+		<link rel="stylesheet" href="{{ asset('css/cekpesanan.css') }}" />
 		<title>Halaman Home</title>
 	</head>
 	<body>
@@ -79,36 +79,9 @@
 		
 		<!-- card end -->
 
-		<!-- Footer -->
-		<div class="card-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col justify-content-start">
-						<h3 class=""><img src="../img/smkn2.png" alt=""><span class="space"></span> E-Room</h3>
-					</div>
-					<div class="col justify-content-center text-center">
-						<a href=""><i class="fa fa-instagram link-light icon" aria-hidden="true"></i></a>
-						<a href=""><i class="fa fa-youtube-play link-light icon" aria-hidden="true"></i></a>
-						<a href=""><i class="fa fa-facebook-official link-light" aria-hidden="true"></i></a>
-						<div class="text-center">
-							<p>E-Room &copy; 2022 --All Rights Reserved</p>
-						</div>
-					</div>
-					<div class="col justify-content-end">
-						<h6 class="footer-t text-end">Selamat Datang</h6>
-						<h6 class="text-end">Username</h5>
-					</div>
+			@include('partials.footer')
 
-				</div>
-			</div>
-		</div>
-	<!-- Footer End -->
-
-				<!-- jQuery -->
-				<script src="../js/jquery-3.6.0.min.js"></script>
-				<script src="../js/popper.min.js"></script>
-				<script src="../js/bootstrap.min.js"></script>
-				<!-- jQuery end -->
+				@include('partials.linkJS')
 
 </body>
 </html>

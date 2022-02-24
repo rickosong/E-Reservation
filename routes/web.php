@@ -24,11 +24,11 @@ Route::get('/homepage/posts', function(){
     return view('reservation.post');
 })->name('post');
 
-Route::get('/homepage/pesan', function(){
+Route::get('/homepage/post/pesan', function(){
     return view('reservation.formpemesanan');
 })->name('formpemesanan');
 
-Route::get('/homepage/invoice', function(){
+Route::get('/homepage/post/invoice', function(){
     return view('reservation.buktipemesanan');
 })->name('invoice');
 

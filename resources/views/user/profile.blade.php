@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Profil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}" />
   </head>
   <body>
 
@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
-							<img class="logo" src="../img/person-circle.svg" alt=""/>
+							<img class="logo" src="{{ asset('img/person-circle.svg') }}" alt=""/>
 							<br>
 							<small>Mohon gunakan gambar yang ukurannya 1:1 agar menjadi lebih bagus</small>
 							<br>
@@ -95,10 +95,6 @@
 		</div>
 	<!-- profil end -->
 
-    <!--javascript-->
-    <script src="../js/jquery-3.6.0.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    @include('partials.linkJS')
   </body>
 </html>

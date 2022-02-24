@@ -1,7 +1,7 @@
 		<!-- navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="{{ route('homepage') }}"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
+				<a class="navbar-brand" href="{{ route('homepage') }}"><img src="{{ asset('img/smkn2.png') }}" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -23,7 +23,7 @@
 						</li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle" src="../img/person-circle.svg" alt="user photo">
+                                <img class="rounded-circle" src="{{ asset('img/person-circle.svg') }}" alt="user photo">
                               </a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{{ route('profile') }}"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>

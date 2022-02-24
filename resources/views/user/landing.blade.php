@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/landing.css" />
+		<link rel="stylesheet" href="{{ asset('css/landing.css') }}" />
 		<title>Landingpage</title>
 	</head>
 	<body>
@@ -196,10 +196,6 @@
 				</div>
 			<!-- Footer End -->
 
-		<!-- jQuery -->
-		<script src="js/jquery-3.6.0.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<!-- jQuery end -->
+			@include('partials.linkJS')
 	</body>
 </html>

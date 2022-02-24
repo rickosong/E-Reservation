@@ -79,5 +79,6 @@
 			</form>
 		</div>
 		<!-- profil end -->
+		@include('partials.linkJS')
 	</body>
 </html>

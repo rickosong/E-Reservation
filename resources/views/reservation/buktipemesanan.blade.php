@@ -28,7 +28,7 @@
             </div>
 
             <div class="col-lg-2 col-md-2 col-sm-2 col-4">
-                <img src="../img/smkn2.png" alt="" class="img-invoice">
+                <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-invoice">
             </div>
         </div>
         <br><br>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="col-lg-1 col-md-1 col-sm-5 offset-lg-10 offset-sm-7">
-                <img src="../img/smkn2.png" alt="" class="img-stempel">
+                <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-stempel">
             </div>
         </div>
     </div>
