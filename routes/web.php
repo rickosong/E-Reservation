@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AkunMemberController;
+use App\Http\Controllers\AkunPetugasController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\RuanganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin');
+
+Route::get('akunmember', [AkunMemberController::class, 'index'])->name ('akunmember');
+
+Route::get('akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas');
+
+Route::get('pesanan', [PesananController::class, 'index'])->name ('pesanan');
+
+Route::get('ruangan', [RuanganController::class, 'index'])->name ('ruangan');
