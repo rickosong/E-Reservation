@@ -99,6 +99,8 @@
     
 
         <!-- post page end -->
+
+		@include('partials.linkJS')
     
     </body>
 </html>
