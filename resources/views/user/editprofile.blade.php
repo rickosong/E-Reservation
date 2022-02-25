@@ -15,6 +15,8 @@
 			<form action="/homepage/profile" method="post">
 				@method('put')
 				@csrf
+				@foreach ( $profiles as $profile )
+	
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
@@ -33,31 +35,32 @@
 						<div class="profile-head">
 							<div class="form-group mb-3">
 								{{-- <label for="name" class="teks-kolom">Nama Lengkap:</label> --}}
-								<input type="hidden" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name" required value="{{ old(auth()->user()->id) }}"/>
+								<input type="hidden" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name"  value="{{ $user->id }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="name" class="teks-kolom">Nama Lengkap:</label>
-								<input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name" required value="{{ old(auth()->user()->name) }}"/>
+								<input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name"  value="{{ $user->name }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="tanggal" class="teks-kolom">Tanggal Lahir:</label>
-								<input type="datetime" class="form-control" id="tanggal" placeholder="Masukkan Tanggal Lahir" required value=""/>
+								<input type="datetime" class="form-control" id="tanggal" placeholder="Masukkan Tanggal Lahir"  value="{{ $profile->birthday }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="telepon" class="teks-kolom">No. Telepon:</label>
-								<input type="number" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda" required />
+								<input type="number" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda"  value="{{ $user->phone_number }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="email" class="teks-kolom">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" required />
+								<input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" value="{{ $user->email }}" />
 							</div>
 							<div class="form-group mb-3">
 								<label for="alamat" class="teks-kolom">Alamat:</label><br />
-								<textarea name="" id="alamat" cols="50" rows="3" placeholder="Masukkan Alamat Anda" required></textarea>
+								<textarea name="addres" id="alamat" cols="50" rows="3" placeholder="Masukkan Alamat Anda">{{ $profile->addres }}</textarea>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
 				<div class="row">
 					<div class="col-md-12">
 						<div class="tab-content profile-tab" id="myTabContent">

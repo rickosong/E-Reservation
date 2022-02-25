@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
-// use App\Models\User;
+use App\Models\User;
 
 class profileController extends Controller
 {
@@ -15,10 +15,16 @@ class profileController extends Controller
         ]);
     }
 
-    public function viewEditProfile(Profile $profile){
-        return view('user.editprofile', [
-            'profile' => $profile,
+    public function editProfile(){
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $profile = Profile::where('user_id', $id)->get();
 
+        // dd($profile);
+
+        return view('user.editprofile', [
+            'user' => $user,
+            'profiles' => $profile,
         ]);
     }
 
