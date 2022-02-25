@@ -35,6 +35,11 @@
 							<h6>{{ auth()->user()->username }}</h6>
 							<br>
 							<hr color="black">
+							@if (session()->has('successUpdateProfile'))
+							<div class="alert alert-success" role="alert-dissmissable">
+								{{ session('successUpdateProfile') }}
+							  </div>
+							@endif
 						</div>
 					</div>
 					<div class="col-md-3 text-end">
@@ -92,6 +97,7 @@
 				</div>
 				@endforeach
 			</form>
+			
 		</div>
 	<!-- profil end -->
 

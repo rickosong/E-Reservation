@@ -12,7 +12,7 @@
 	<body>
 		<!--profil start-->
 		<div class="container emp-profile">
-			<form action="/homepage/profile" method="post">
+			<form action="{{ route('updateprofile', $user->id) }}" method="post">
 				@method('put')
 				@csrf
 				@foreach ( $profiles as $profile )
@@ -43,15 +43,15 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="tanggal" class="teks-kolom">Tanggal Lahir:</label>
-								<input type="datetime" class="form-control" id="tanggal" placeholder="Masukkan Tanggal Lahir"  value="{{ $profile->birthday }}"/>
+								<input type="datetime" class="form-control" id="tanggal" name="birthday" placeholder="Masukkan Tanggal Lahir"  value="{{ $profile->birthday }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="telepon" class="teks-kolom">No. Telepon:</label>
-								<input type="number" class="form-control" id="telepon" placeholder="Masukkan Nomor Telepon Anda"  value="{{ $user->phone_number }}"/>
+								<input type="number" class="form-control" id="telepon"name="nomor" placeholder="Masukkan Nomor Telepon Anda"  value="{{ $user->phone_number }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="email" class="teks-kolom">Email:</label>
-								<input type="email" class="form-control" id="email" placeholder="Masukkan Email Anda" value="{{ $user->email }}" />
+								<input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email Anda" value="{{ $user->email }}" />
 							</div>
 							<div class="form-group mb-3">
 								<label for="alamat" class="teks-kolom">Alamat:</label><br />

@@ -28,11 +28,27 @@ class profileController extends Controller
         ]);
     }
 
-    public function edit(){
+    public function updateProfile(Request $request){
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $profiles = Profile::where('user_id', $id)->get();
 
-    }
+        $user->name = $request->name;
+        $user->phone_number = $request->nomor;
+        $user->email = $request->email;
+        
+        foreach ($profiles as $profile){
+        $profile->birthday = $request->birthday;
+        $profile->addres = $request->addres;
+        }
+        // $profile->image = '';
+        // $profile->user_id = $id;
 
-    public function update(){
+        // dd($user, $profile);
 
+        $user->update();
+        $profile->update();
+        $request->session()->flash('successUpdateProfile', 'Update Berhasil, profil sudah terupdate');
+        return redirect('/homepage/profile');
     }
 }
