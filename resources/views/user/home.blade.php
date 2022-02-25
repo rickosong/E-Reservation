@@ -24,7 +24,7 @@
 				<img src="../img/imgcarousel.jpg" class="d-block w-100" alt="...">
 				<div class="carousel-caption d-none d-md-block">
 					<h1 class="row justify-content-start">Selamat Datang di</h1>
-					<h1 class="row justify-content-start">E-Room SMKN 2</h1>
+					<h1 class="row justify-content-start">E-Reservation SMKN 2</h1>
 					<h1 class="row justify-content-start">Banjarmasin</h1>
 				</div>
 			  </div>
