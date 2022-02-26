@@ -12,7 +12,7 @@
 	<body>
 		<!--profil start-->
 		<div class="container emp-profile">
-			<form action="{{ route('updateprofile', $user->id) }}" method="post">
+			<form action="{{ route('updateprofile', $user->id) }}" method="post" enctype="multipart/form-data">
 				@method('put')
 				@csrf
 				@foreach ( $profiles as $profile )
@@ -20,12 +20,12 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
-							<img class="logo" src="{{ asset('img/person-circle.svg') }}" alt="logo user" title="logo user" />
+							<img class="logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="logo user" title="logo user" />
 							<br />
 							<br />
-							{{-- <label class="custom-file-upload">
-								<input type="file" />
-							</label> --}}
+							<label class="custom-file-upload">
+								<input type="file"class="form-control" name="userimage" onchange="prewiew(this)"/>
+							</label>
 							<br />
 							<small>Mohon gunakan gambar yang ukurannya 1:1 agar menjadi lebih bagus</small>
 							<br />

@@ -23,7 +23,9 @@
 						</li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle" src="{{ asset('img/person-circle.svg') }}" alt="user photo">
+								@foreach ($profiles as $profile )
+								<img class="rounded-circle" src="{{ asset('img/') }}/{{ $profile->image }}" alt="user photo">
+								@endforeach
                               </a>
                               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{{ route('profile') }}"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>

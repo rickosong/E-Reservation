@@ -40,8 +40,16 @@ class profileController extends Controller
         foreach ($profiles as $profile){
         $profile->birthday = $request->birthday;
         $profile->addres = $request->addres;
+        if ($request->hasFile('userimage')) {
+            $image = $request->file('userimage');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('img'), $imageName);
+            
+            $profile->image = $imageName;
+        } else {
+            $profile->image = $profile->image;
         }
-        // $profile->image = '';
+        }
         // $profile->user_id = $id;
 
         // dd($user, $profile);

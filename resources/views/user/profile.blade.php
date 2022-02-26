@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="profile-img">
-							<img class="logo" src="{{ asset('img/person-circle.svg') }}" alt=""/>
+							<img class="rounded-circle logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt=""/>
 							<br>
 							<small>Mohon gunakan gambar yang ukurannya 1:1 agar menjadi lebih bagus</small>
 							<br>

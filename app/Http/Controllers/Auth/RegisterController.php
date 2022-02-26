@@ -51,7 +51,7 @@ class RegisterController extends Controller
                 'user_id' => $member->id,
                 'birthday' => 'silahkan isi tanggal lahir anda',
                 'addres' => 'silahkan isi alamat anda',
-                'image' => '',
+                'image' => 'user.svg',
             ]
         );
 
