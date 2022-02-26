@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Jenis_Role;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -38,6 +39,17 @@ class DatabaseSeeder extends Seeder
 
         User::create(
             [
+                'username' => 'admin',
+                'password' => bcrypt('admin'),
+                'name' => 'Admin Reservasi',
+                'jenis_role_id' => 1,
+                'email' => 'admin@gmail.com',
+                'phone_number' => '081912345678',
+            ],
+        );
+
+        User::create(
+            [
                 'username' => 'morito',
                 'password' => bcrypt('morito'),
                 'name' => 'Mohammmad Ricko Aprilianto',
@@ -47,26 +59,13 @@ class DatabaseSeeder extends Seeder
             ],
         );
 
-        User::create(
+        Profile::create(
             [
-                'username' => 'adit',
-                'password' => bcrypt('adit2'),
-                'name' => 'Aditya Pratama',
-                'jenis_role_id' => 2,
-                'email' => 'adit@gmail.com',
-                'phone_number' => '081931271102',
-            ],
-        );
-
-        User::create(
-            [
-                'username' => 'admin',
-                'password' => bcrypt('admin'),
-                'name' => 'Admin Reservasi',
-                'jenis_role_id' => 1,
-                'email' => 'admin@gmail.com',
-                'phone_number' => '081912345678',
-            ],
+                'user_id' => 1,
+                'birthday' => 'silahkan isi tanggal lahir anda',
+                'addres' => 'silahkan isi alamat anda',
+                'image' => 'user.svg',
+            ]
         );
     }
 }
