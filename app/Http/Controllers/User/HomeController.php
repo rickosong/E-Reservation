@@ -19,4 +19,8 @@ class HomeController extends Controller
             'profiles' => Profile::where('user_id', auth()->user()->id)->get(),
         ]);
     }
+
+    public function testViewAdmin(){
+        return view('user.testAdminPage');
+    }
 }

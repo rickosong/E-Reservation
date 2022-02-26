@@ -20,8 +20,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
-            return redirect()->intended('/homepage');
+            
+            if(auth()->user()->jenis_role_id == 1){
+                return redirect()->intended('/adminpage');
+            }
+            else{
+                return redirect()->intended('/homepage');
+            }
+           
         }
 
         return back()->with('loginError', 'gagal login');

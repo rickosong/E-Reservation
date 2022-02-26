@@ -24,7 +24,7 @@
 							<br />
 							<br />
 							<label class="custom-file-upload">
-								<input type="file"class="form-control" name="userimage" onchange="prewiew(this)"/>
+								<input type="file"class="form-control" name="userimage"/>
 							</label>
 							<br />
 							<small>Mohon gunakan gambar yang ukurannya 1:1 agar menjadi lebih bagus</small>
