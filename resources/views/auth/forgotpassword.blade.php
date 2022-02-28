@@ -4,9 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="../css/login.css" />
+		<link rel="stylesheet" href="{{ asset('css/login.css') }}" />
 		<title>Login</title>
 	</head>
 	<body>
@@ -15,7 +15,7 @@
 			<section class="row justify-content-start">
 				<section class="col-lg-5 col-md-4">
 					<div class="kanan">
-						<img src="../img/smkn2.png" alt="" />
+						<img src="{{ asset('img/smkn2.png') }}" alt="" />
 						<br /><br />
 						<h3>RESERVASI RUANGAN SMKN 2 BANJARMASIN</h3>
 					</div>
@@ -49,10 +49,5 @@
 		<!-- form login end -->
 	</body>
 
-	<!-- jQuery -->
-	<script src="../js/jquery-3.5.1.js"></script>
-	<script src="../js/jquery-3.6.0.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- jQuery end -->
+	@include('partials.linkJS')
 </html>

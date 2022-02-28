@@ -7,6 +7,7 @@ use App\Http\Controllers\User\LandingController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\allRuanganController;
 use App\Http\Controllers\User\pesananMemberController;
+use App\Http\Controllers\Auth\forgotPasswordController;
 use App\Http\Controllers\User\profileController;
 
 /*
@@ -38,6 +39,8 @@ Route::post('/register', [RegisterController::class, 'regisMember']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'storeLogin']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/forgotpassword', [forgotPasswordController::class, 'index'])->name('search')->middleware('guest');
+// Route::post('/forgotpassword/change', [RegisterController::class, 'index'])->middleware('guest');
 
 
 // User

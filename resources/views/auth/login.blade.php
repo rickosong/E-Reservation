@@ -44,7 +44,7 @@
 							<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required />
 							<a href="{{ route('register') }}"><small class="text-cl-sm">Gak punya akun? Daftar Sekarang!</small></a
 							><br />
-							<a href="searchemail.html"><small class="text-cl-sm">Forgot Password?</small></a>
+							<a href="{{ route('search') }}"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
 						<div class="d-grid gap-2">
 							<button class="btn tombol" type="submit"
