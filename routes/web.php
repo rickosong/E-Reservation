@@ -40,7 +40,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'storeLogin']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/forgotpassword', [forgotPasswordController::class, 'index'])->name('search')->middleware('guest');
-// Route::post('/forgotpassword/change', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/forgotpassword', [forgotPasswordController::class, 'editPassword'])->middleware('guest');
+Route::put('/forgotpassword/change', [forgotPasswordController::class, 'updatePass'])->middleware('guest');
 
 
 // User

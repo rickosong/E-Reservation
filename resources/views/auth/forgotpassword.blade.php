@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-		<title>Login</title>
+		<title>Forgot Password</title>
 	</head>
 	<body>
 		<!-- form login -->
@@ -24,22 +24,31 @@
 
 			<section class="row justify-content-end">
 				<section class="col-sm-12 col-lg-5 col-md-12">
-					<form class="form-container">
+					<form class="form-container" method="POST" action="/forgotpassword/change">
+						@csrf
+						@method('put')
+						@if(session()->has('noUser'))
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+									{{ session('noUser') }}
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+							@endif
 						<div class="form-group mb-3">
 							<h2>FORGOT</h2>
 							<h2>PASSWORD</h2>
 							<br /><br />
-							<label for="username" class="teks-kolom">Username:</label>
-							<input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Masukkan Username" />
+							<p class="text-center">Halo {{ $user->username }} silahkan ubah password Anda:</p>
+							<label for="password" class="teks-kolom">Password:</label>
+							<input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Masukkan password" name="password"/>
 						</div>
 						<div class="form-group mb-3">
-							<label for="password" class="teks-kolom">Password</label>
-							<input type="password" class="form-control" id="password" placeholder="Masukkan Password" />
-							<a href="loginpage.html"><small class="text-cl-sm">Kembali</small></a>
+							<label for="re_password" class="teks-kolom">Confirm Password</label>
+							<input type="password" class="form-control" id="re_password" placeholder="Masukkan Password kembali" name="confirmpass" />
+							<a href="{{ route('login') }}"><small class="text-cl-sm">Kembali</small></a>
 						</div>
 						<div class="d-grid gap-2">
-							<a href="home.html" class="btn tombol" type="submit"
-								><span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Ganti</a
+							<button class="btn tombol" type="submit"
+								><span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Ganti</button
 							>
 						</div>
 					</form>
