@@ -44,8 +44,8 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Admin Reservasi',
                 'jenis_role_id' => 1,
                 'email' => 'admin@gmail.com',
-                'phone_number' => '081912345678',
-            ],
+                'phone_number' => 'silahkan isi nomor hp anda',
+            ]
         );
 
         User::create(
@@ -55,13 +55,22 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Mohammmad Ricko Aprilianto',
                 'jenis_role_id' => 2,
                 'email' => 'ricko.aprilianto00@gmail.com',
-                'phone_number' => '081932432218',
-            ],
+                'phone_number' => 'silahkan isi nomor hp anda',
+            ]
         );
 
         Profile::create(
             [
                 'user_id' => 1,
+                'birthday' => 'silahkan isi tanggal lahir anda',
+                'addres' => 'silahkan isi alamat anda',
+                'image' => 'user.svg',
+            ]
+        );
+
+        Profile::create(
+            [
+                'user_id' => 2,
                 'birthday' => 'silahkan isi tanggal lahir anda',
                 'addres' => 'silahkan isi alamat anda',
                 'image' => 'user.svg',

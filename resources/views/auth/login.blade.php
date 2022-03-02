@@ -36,6 +36,13 @@
 							</div>
 							@endif
 
+							@if(session()->has('successUpdatePass'))
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									{{ session('successUpdatePass') }}
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+							@endif
+
 							<label for="username" class="teks-kolom">Username:</label>
 							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required />
 						</div>
@@ -44,7 +51,7 @@
 							<input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required />
 							<a href="{{ route('register') }}"><small class="text-cl-sm">Gak punya akun? Daftar Sekarang!</small></a
 							><br />
-							<a href="searchemail.html"><small class="text-cl-sm">Forgot Password?</small></a>
+							<a href="{{ route('search') }}"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
 						<div class="d-grid gap-2">
 							<button class="btn tombol" type="submit"
