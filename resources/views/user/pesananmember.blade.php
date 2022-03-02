@@ -65,6 +65,7 @@
         <br><br><br><br>
         <!-- content end -->
 
+        @include('partials.linkJS')
 		@include('partials.footer')
 
 	</body>

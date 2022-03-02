@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col justify-content-start">
-                        <h3 class=""><img src="../img/smkn2.png" alt=""><span class="space"></span> E-Reservation</h3>
+                        <h3 class=""><img src="{{ asset('img/smkn2.png') }}" alt=""><span class="space"></span> E-Reservation</h3>
                     </div>
                     <div class="col justify-content-center text-center">
                         <a href=""><i class="fa fa-instagram link-light icon" aria-hidden="true"></i></a>
