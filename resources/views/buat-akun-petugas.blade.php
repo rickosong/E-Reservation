@@ -149,8 +149,7 @@
                                                     <input class="form-control" require> 
                                                 </div>
                                                 <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
-            <input type="button" class="btn btn-default" value="Kembali" name="Batal"
-            onClick="window.location='akun-petugas.php';" />
+                                                <a href="{{ route('akunpetugas') }}" class="btn btn-default"> Kembali </a>
                                             </form>
                                     </div>
                                     

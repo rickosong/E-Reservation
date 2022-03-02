@@ -6,6 +6,8 @@ use App\Http\Controllers\AkunMemberController;
 use App\Http\Controllers\AkunPetugasController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\BuatRuanganController;
+use App\Http\Controllers\BuatPetugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,8 @@ Route::get('akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunp
 Route::get('pesanan', [PesananController::class, 'index'])->name ('pesanan');
 
 Route::get('ruangan', [RuanganController::class, 'index'])->name ('ruangan');
+
+Route::get('buatruangan', [BuatRuanganController::class, 'index'])->name ('buatruangan');
+Route::post('buatruangan', [BuatRuanganController::class, 'store'])->name ('storeruangan');
+
+Route::get('buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas');

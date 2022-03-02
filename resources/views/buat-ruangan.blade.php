@@ -116,44 +116,47 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Form Edit
+                                    Form Ruangan
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form">
+                                            <form role="form" method="POST" action="{{ route('storeruangan') }}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="form-group">
                                                     <label>Nama Ruangan</label>
-                                                    <input class="form-control" require>
+                                                    <input type="text" name="namaruangan" class="form-control" require>
                                                 </div>
                                                 <div class="form-group">
                                                 <label>Deskripsi</label>
-                                                    <textarea class="form-control" rows="3" require></textarea>
+                                                    <textarea class="form-control" name="deskripsi" rows="3" require></textarea>
                                                 </div>
                                                 <label>Harga</label>
 
-                                                <div class="form-group input-group">
+                                                <div class="form-group input-group" >
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="harga" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Fasilitas</label>
-                                                    <input class="form-control" require> 
+                                                    <textarea class="form-control" name="fasilitas" rows="3" require></textarea> 
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Jenis Ruangan</label>
-                                                    <select name="" class="form-control">
-                                                        <option>Kecil</option>
-                                                        <option>Besar</option>
+                                                    <select name="jenisruang" class="form-control">
+                                                        {{-- <option value="{{ $jenisruangan }}">{{ $jenisruangan }}</option> --}}
+                                                        <option selected="true" disabled="disabled"> ---- </option>
+                                                        @foreach ($jenisruangan as $jenis)
+                                                        <option value="{{ $jenis->id }}">{{ $jenis->jenis_ruangan }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Gambar Ruangan</label>
-                                                    <input type="file" accept="image/png, image/jpeg" require/> 
+                                                    <input type="file" class="form-control" accept="image/png, image/jpeg" name="file" require/> 
                                                 </div>
                                                 <button type="submit" class="btn btn-success">Submit</button>
-                                                <input type="button" class="btn btn-default" value="Kembali" name="Batal"
-            onClick="window.location='ruangan.php';" />
+                                                <a href="{{ route('ruangan') }}" class="btn btn-default"> Kembali </a>
                                             </form>
                                     </div>
                                     

@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ruangan;
+use App\Models\Jenis_Ruangan;
 
 class RuanganController extends Controller
 {
     public function index(){
-        return view('ruangan');
-    }
+        $jenisruangans = Ruangan::all();
 
-    public function store(Request $request)
-    {
-       $ruangan = new Ruangan();
-       $ruangan->nama_ruangan = $request->nama_ruangan;
-    //    $ruangan->jenis_ruangan_id = ;
-       $ruangan->total_jumlah_kapasitas = $request->total_jumlah_kapasitas;
-       $ruangan->fasilitas = $request->fasilitas;
-       $ruangan->keterangan_fasilitas = $request->keterangan_fasilitas;
- 
- 
-       $ruangan->save();
-       return redirect()->route('table_ruangan');
+        foreach ($jenisruangans as $jenisruang) {
+            $namajenisRuang = $jenisruang->jenis_ruangan_id;
+        }
+
+        return view('ruangan', [
+            'ruangans' => Ruangan::all(),
+            'jenisruang' => Jenis_Ruangan::where('id', $namajenisRuang )->get()
+        ]);
+        
+        // $ruangans = 'ruangans';
+        // dd($ruangans);
     }
 }

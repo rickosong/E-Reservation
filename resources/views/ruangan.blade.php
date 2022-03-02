@@ -116,11 +116,19 @@
                     <h1 class="page-header">Data Ruangan</h1>
                 </div>
             </div>
-            <a class="btn btn-success" href="buat-ruangan.php" <i class='fa fa-edit' aria-hidden='true'></i> Buat Ruangan Baru</a>
+            <a class="btn btn-success" href="{{ route('buatruangan') }}" <i class='fa fa-edit' aria-hidden='true'></i> Buat Ruangan Baru</a>
 
             <div class="panel-body">
                                     <div class="table-responsive">
+                                        @if (session()->has('successCreateRuangan'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ session('successCreateRuangan') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                
+                                        
                                             <thead>
                                                 <tr>
                                                     <th>Nama Ruangan</th>
@@ -133,17 +141,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($ruangans as $ruangan)
                                             <tr>
-                                                    <td>Lab Korea</td>
-                                                    <td>ini deskripsi ruangan</td>
-                                                    <td>100.000</td>
-                                                    <td>30 buah meja dan kursi, AC, TV</td>
-                                                    <td>VVIP</td>
-                                                    <td><img src="img/lab-korea.jpg" style="width:120px; height:60px;"></td>
+                                                    <td>{{ $ruangan->nama_ruangan }}</td>
+                                                    <td>{{ $ruangan->deskripsi }}</td>
+                                                    <td>{{ $ruangan->harga }}</td>
+                                                    <td>{{ $ruangan->fasilitas }}</td>
+                                                    @foreach ($jenisruang as $jenis)
+                                                    <td>{{ $jenis->jenis_ruangan }}</td>
+                                                    @endforeach
+                                                    <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
                                                     <td> 
                                                     <a class="btn btn-primary" href="edit-ruangan.php" <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
                                                     <a class="btn btn-danger" href="" <i class='fa fa-trash' aria-hidden='true'></i> Hapus</a> </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
