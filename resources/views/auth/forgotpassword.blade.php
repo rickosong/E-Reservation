@@ -24,12 +24,12 @@
 
 			<section class="row justify-content-end">
 				<section class="col-sm-12 col-lg-5 col-md-12">
-					<form class="form-container" method="POST" action="/forgotpassword/change">
+					<form class="form-container" method="POST" action="{{ route('changepassword', $user->id) }}">
 						@csrf
 						@method('put')
-						@if(session()->has('noUser'))
+						@if(session()->has('error'))
 								<div class="alert alert-danger alert-dismissible fade show" role="alert">
-									{{ session('noUser') }}
+									{{ session('error') }}
 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								</div>
 							@endif

@@ -36,6 +36,13 @@
 									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 								</div>
 							@endif
+
+							@if(session()->has('error'))
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+									{{ session('error') }}
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+							@endif
 							<label for="username" class="teks-kolom">email:</label>
 							<input type="email" class="form-control" name="email" id="username" aria-describedby="emailHelp" placeholder="Cari Email" />
 							<a href="{{ route('login') }}"><small class="text-cl-sm">Kembali</small></a>

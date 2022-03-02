@@ -28,19 +28,25 @@ class forgotPasswordController extends Controller
 
     }
 
-    public function updatePass(Request $request){
-        $user = User::whereEmail($request->email)->first();
-
-        dd($user);
+    public function updatePass(Request $request, $id){
+        $user = $id;
+        $user = User::find($id);
+        
 
         $password = $request->password;
-        $confirmPass = $request->confrimpass;
+        $confirmPass = $request->confirmpass;
 
         if ($confirmPass !== $password) {
-            return back()->with('error', 'Gagal Registrasi. Pastikan semua data dan konfirmasi Passwordnya sama dengan Password yang dimasukkan.');
+            return back()->with('error', 'Gagal mengganti passwrod. Pastikan password sama dengan konfirmasi password');
             return false;
         }
 
-        // $user
+        $password = bcrypt($request->password);
+
+        $user->password = $password;
+
+        $user->update();
+        $request->session()->flash('successUpdatePass', 'Password Berhasil Dirubah, silahkan login');
+        return redirect('/login');
     }
 }

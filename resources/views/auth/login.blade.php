@@ -36,6 +36,13 @@
 							</div>
 							@endif
 
+							@if(session()->has('successUpdatePass'))
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									{{ session('successUpdatePass') }}
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+							@endif
+
 							<label for="username" class="teks-kolom">Username:</label>
 							<input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Username" required />
 						</div>
