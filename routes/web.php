@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AkunMemberController;
+use App\Http\Controllers\AkunPetugasController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\BuatRuanganController;
+use App\Http\Controllers\BuatPetugasController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\LandingController;
@@ -9,6 +16,7 @@ use App\Http\Controllers\User\allRuanganController;
 use App\Http\Controllers\User\pesananMemberController;
 use App\Http\Controllers\Auth\forgotPasswordController;
 use App\Http\Controllers\User\profileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +62,20 @@ Route::get('/homepage/profile/edit/{user:id}', [profileController::class, 'editP
 Route::put('/homepage/profile/edit/{user:id}', [profileController::class, 'updateProfile'])->name('updateprofile')->middleware('auth');
 Route::get('/homepage/aboutpage', [HomeController::class, 'aboutPage'])->name('aboutpage')->middleware('auth');
 
-// admin
+// Admin
 Route::get('/adminpage', [HomeController::class, 'testViewAdmin'])->name('adminview')->middleware('auth', 'isAdmin');
+
+Route::get('homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin');
+
+Route::get('akunmember', [AkunMemberController::class, 'index'])->name ('akunmember');
+
+Route::get('akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas');
+
+Route::get('pesanan', [PesananController::class, 'index'])->name ('pesanan');
+
+Route::get('ruangan', [RuanganController::class, 'index'])->name ('ruangan');
+
+Route::get('buatruangan', [BuatRuanganController::class, 'index'])->name ('buatruangan');
+Route::post('buatruangan', [BuatRuanganController::class, 'store'])->name ('storeruangan');
+
+Route::get('buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas');
