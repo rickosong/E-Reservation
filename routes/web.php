@@ -63,19 +63,12 @@ Route::put('/homepage/profile/edit/{user:id}', [profileController::class, 'updat
 Route::get('/homepage/aboutpage', [HomeController::class, 'aboutPage'])->name('aboutpage')->middleware('auth');
 
 // Admin
-Route::get('/adminpage', [HomeController::class, 'testViewAdmin'])->name('adminview')->middleware('auth', 'isAdmin');
-
-Route::get('homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin');
-
-Route::get('akunmember', [AkunMemberController::class, 'index'])->name ('akunmember');
-
-Route::get('akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas');
-
-Route::get('pesanan', [PesananController::class, 'index'])->name ('pesanan');
-
-Route::get('ruangan', [RuanganController::class, 'index'])->name ('ruangan');
-
-Route::get('buatruangan', [BuatRuanganController::class, 'index'])->name ('buatruangan');
-Route::post('buatruangan', [BuatRuanganController::class, 'store'])->name ('storeruangan');
-
-Route::get('buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas');
+// Route::get('/adminpage', [HomeController::class, 'testViewAdmin'])->name('adminview')
+Route::get('/homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin')->middleware('auth', 'isAdmin');
+Route::get('/akunmember', [AkunMemberController::class, 'index'])->name ('akunmember')->middleware('auth', 'isAdmin');
+Route::get('/akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas')->middleware('auth', 'isAdmin');
+Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->middleware('auth', 'isAdmin');
+Route::get('/ruangan', [RuanganController::class, 'index'])->name ('ruangan')->middleware('auth', 'isAdmin');
+Route::get('/buatruangan', [BuatRuanganController::class, 'index'])->name ('buatruangan')->middleware('auth', 'isAdmin');
+Route::post('/buatruangan', [BuatRuanganController::class, 'store'])->name ('storeruangan')->middleware('auth', 'isAdmin');
+Route::get('/buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas')->middleware('auth', 'isAdmin');

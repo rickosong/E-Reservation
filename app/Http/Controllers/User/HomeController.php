@@ -20,7 +20,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function testViewAdmin(){
-        return view('user.testAdminPage');
-    }
+    // public function testViewAdmin(){
+    //     return view('user.testAdminPage');
+    // }
 }

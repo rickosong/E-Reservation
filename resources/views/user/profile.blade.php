@@ -11,7 +11,9 @@
   </head>
   <body>
 
-	@include('partials.navbar')
+	@if (auth()->user()->role_id == 2)
+		@include('partials.navbar')
+	@endif
 
      <!--profil start-->
      <div class="container emp-profile">

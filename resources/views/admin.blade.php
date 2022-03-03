@@ -10,24 +10,24 @@
     <title>Admin Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="startmin-master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('startmin-master/css/bootstrap.min.css') }} " rel="stylesheet">
 
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }} " rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="startmin-master/css/metisMenu.min.css" rel="stylesheet">
+    <link href="{{asset('startmin-master/css/metisMenu.min.css')  }}" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="startmin-master/css/timeline.css" rel="stylesheet">
+    <link href="{{ asset('startmin-master/css/timeline.cs') }}s" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="startmin-master/css/startmin.css" rel="stylesheet">
+    <link href="{{ asset('startmin-master/css/startmin.css') }}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="startmin-master/css/morris.css" rel="stylesheet">
+    <link href="{{ asset('startmin-master/css/morris.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="startmin-master/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('startmin-master/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     
 
@@ -42,63 +42,7 @@
 
 <div id="wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand icon-white" href="#"> 
-            <span><img src="img/smkn2-30.png"> </span> E-Room
-            </a>
-        </div>
-
-
-
-        <!-- Top Navigation: Right Menu -->
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user-circle-o fa-fw icon-white"></i><b class="caret icon-white"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="{{ route('homeadmin') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('ruangan') }}" class="active"><i class="fa fa-building fa-fw"></i> Ruangan</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Akun <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ route('akunmember') }}">Member</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('akunpetugas') }}">Petugas</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('pesanan') }}" class="active"><i class="fa fa-credit-card fa-fw"></i> Pesanan</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
+    @include('partials.navbaradmin')
 
     <!-- Page Content -->
     <div id="page-wrapper">

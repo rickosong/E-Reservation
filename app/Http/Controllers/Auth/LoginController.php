@@ -22,7 +22,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             
             if(auth()->user()->jenis_role_id == 1){
-                return redirect()->intended('/adminpage');
+                return redirect()->intended('/homeadmin');
             }
             else{
                 return redirect()->intended('/homepage');
