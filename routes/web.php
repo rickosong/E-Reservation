@@ -70,5 +70,6 @@ Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->m
 Route::get('/ruangan', [RuanganController::class, 'index'])->name ('ruangan')->middleware('auth', 'isAdmin');
 Route::get('/ruangan/buaturuangan', [RuanganController::class, 'add'])->name ('buatruangan')->middleware('auth', 'isAdmin');
 Route::post('/ruangan/buatruangan', [RuanganController::class, 'store'])->name ('storeruangan')->middleware('auth', 'isAdmin');
-// Admin-Ruangan-End
+Route::delete('/ruangan/hapus/{ruangan:id}', [RuanganController::class, 'destroy'])->name ('hapusruangan')->middleware('auth', 'isAdmin');
+// Admin-Ruangan
 Route::get('/buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas')->middleware('auth', 'isAdmin');

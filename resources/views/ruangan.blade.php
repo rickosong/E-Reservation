@@ -11,7 +11,6 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('startmin-master/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{ asset('startmin-master/css/metisMenu.min.css') }}" rel="stylesheet">
 
@@ -51,14 +50,6 @@
 
 <div id="wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand icon-white" href="#"> 
-            <span><img src="img/smkn2-30.png"> </span> E-Room
-            </a>
-        </div>
-
     @include('partials.navbaradmin')
 
     <!-- Page Content -->
@@ -75,10 +66,15 @@
             <div class="panel-body">
                                     <div class="table-responsive">
                                         @if (session()->has('successCreateRuangan'))
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <div class="alert alert-success" role="alert">
                                             {{ session('successCreateRuangan') }}
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
+                                          </div>
+                                        @endif
+
+                                        @if (session()->has('successDeleteRuangan'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('successDeleteRuangan') }}
+                                          </div>
                                         @endif
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                 
@@ -89,7 +85,7 @@
                                                     <th>Deskripsi</th>
                                                     <th>Harga</th>
                                                     <th>Fasilitas</th>
-                                                    <th>Kelas</th>
+                                                    <th>Jenis</th>
                                                     <th>Gambar Ruangan</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -102,12 +98,17 @@
                                                     <td>{{ $ruangan->harga }}</td>
                                                     <td>{{ $ruangan->fasilitas }}</td>
                                                     @foreach ($jenisruang as $jenis)
-                                                    <td>{{ $jenis->jenis_ruangan }}</td>
+                                                    <td>{{ $ruangan->jenis_ruangan_id }}.{{ $jenis->jenis_ruangan }}</td>
+                                                    {{-- @dump($jenis->jenis_ruangan) --}}
                                                     @endforeach
                                                     <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
                                                     <td> 
-                                                    <a class="btn btn-primary" href="edit-ruangan.php" <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
-                                                    <a class="btn btn-danger" href="" <i class='fa fa-trash' aria-hidden='true'></i> Hapus</a> </td>
+                                                    <a class="btn btn-primary" href="edit-ruangan.php"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+                                                    <form action="{{ route('hapusruangan', $ruangan->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger"  onclick="return confirm('Apakah Anda Yakin Ingin Menghapus {{ $ruangan->nama_ruangan }}')"> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> </td>
+                                                    </form>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
@@ -128,10 +129,10 @@
 </div>
 
 <!-- jQuery -->
-<script src="startmin-master/js/jquery.min.js"></script>
+<script src="('startmin-master/js/jquery.min.js')"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="startmin-master/js/bootstrap.min.js"></script>
+<script src="('startmin-master/js/bootstrap.min.js') "></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="startmin-master/js/metisMenu.min.js"></script>

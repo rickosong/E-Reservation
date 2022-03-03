@@ -15,10 +15,13 @@ class RuanganController extends Controller
         foreach ($jenisruangans as $jenisruang) {
             $namajenisRuang = $jenisruang->jenis_ruangan_id;
         }
+
         return view('ruangan', [
             'ruangans' => Ruangan::all(),
             'jenisruang' => Jenis_Ruangan::where('id', $namajenisRuang )->get()
         ]);
+
+        // dd($namajenisRuang);
         
         // $ruangans = 'ruangans';
         // dd($ruangans);
@@ -47,7 +50,7 @@ class RuanganController extends Controller
         $ruangan->deskripsi = $request->deskripsi;
         $ruangan->save();
 
-        // $request->session()->flash('successCreateRuangan', 'Ruangan Berhasil dibuat');
+        $request->session()->flash('successCreateRuangan', 'Ruangan Berhasil dibuat');
         return redirect('/ruangan');
     }
 
@@ -55,8 +58,11 @@ class RuanganController extends Controller
 
     }
 
-    public function destroy(){
-
+    public function destroy($id){
+        $hapusruangan = Ruangan::find($id);
+        $hapusruangan->delete();
+        
+        return back()->with('successDeleteRuangan', 'Ruangan Berhasil Dihapus');
     }
 
     public function edit(){
