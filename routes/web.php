@@ -6,13 +6,11 @@ use App\Http\Controllers\AkunMemberController;
 use App\Http\Controllers\AkunPetugasController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\RuanganController;
-use App\Http\Controllers\BuatRuanganController;
 use App\Http\Controllers\BuatPetugasController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\LandingController;
 use App\Http\Controllers\User\HomeController;
-use App\Http\Controllers\User\allRuanganController;
 use App\Http\Controllers\User\pesananMemberController;
 use App\Http\Controllers\Auth\forgotPasswordController;
 use App\Http\Controllers\User\profileController;
@@ -55,7 +53,7 @@ Route::put('/forgotpassword/change/{user:id}', [forgotPasswordController::class,
 // User
 Route::get('/', [LandingController::class, 'index'])->name('landing')->middleware('guest');;
 Route::get('/homepage', [HomeController::class, 'index'])->name('homepage')->middleware('auth');
-Route::get('/homepage/allruangan', [allRuanganController::class, 'index'])->name('allRuangan')->middleware('auth');
+Route::get('/homepage/allruangan', [RuanganController::class, 'indexHome'])->name('allRuangan')->middleware('auth');
 Route::get('/homepage/pesananmember', [pesananMemberController::class, 'index'])->name('pesananMember')->middleware('auth');
 Route::get('/homepage/profile', [profileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('/homepage/profile/edit/{user:id}', [profileController::class, 'editProfile'])->name('editprofile')->middleware('auth');
@@ -68,7 +66,9 @@ Route::get('/homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmi
 Route::get('/akunmember', [AkunMemberController::class, 'index'])->name ('akunmember')->middleware('auth', 'isAdmin');
 Route::get('/akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas')->middleware('auth', 'isAdmin');
 Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->middleware('auth', 'isAdmin');
+// Admin-Ruangan
 Route::get('/ruangan', [RuanganController::class, 'index'])->name ('ruangan')->middleware('auth', 'isAdmin');
-Route::get('/buatruangan', [BuatRuanganController::class, 'index'])->name ('buatruangan')->middleware('auth', 'isAdmin');
-Route::post('/buatruangan', [BuatRuanganController::class, 'store'])->name ('storeruangan')->middleware('auth', 'isAdmin');
+Route::get('/ruangan/buaturuangan', [RuanganController::class, 'add'])->name ('buatruangan')->middleware('auth', 'isAdmin');
+Route::post('/ruangan/buatruangan', [RuanganController::class, 'store'])->name ('storeruangan')->middleware('auth', 'isAdmin');
+// Admin-Ruangan-End
 Route::get('/buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas')->middleware('auth', 'isAdmin');
