@@ -53,8 +53,12 @@ class RuanganController extends Controller
         return back()->with('successDeleteRuangan', 'Ruangan Berhasil Dihapus');
     }
 
-    public function edit(){
+    public function edit($id){
+        $ruangan = Ruangan::find($id);
 
+        return view('edit-ruangan', [
+            'ruangan' => $ruangan,
+        ]);
     }
 
     public function update(Request $request){

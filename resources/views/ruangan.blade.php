@@ -105,7 +105,8 @@
                                                     {{-- @dump($jenis->jenis_ruangan) --}}
                                                     <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
                                                     <td> 
-                                                    <a class="btn btn-primary" href="edit-ruangan.php"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+                                                        <a class="btn btn-primary" href="{{ route('editruangan', $ruangan->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+
                                                     <form action="{{ route('hapusruangan', $ruangan->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')

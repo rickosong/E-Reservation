@@ -35,7 +35,7 @@
 						<div class="profile-head">
 							<div class="form-group mb-3">
 								{{-- <label for="name" class="teks-kolom">Nama Lengkap:</label> --}}
-								<input type="hidden" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda" name="name"  value="{{ $user->id }}"/>
+								<input type="hidden" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Masukkan Nama Anda"  value="{{ $user->id }}"/>
 							</div>
 							<div class="form-group mb-3">
 								<label for="name" class="teks-kolom">Nama Lengkap:</label>
