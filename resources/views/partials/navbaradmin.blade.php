@@ -18,12 +18,14 @@
                     <li><a href="{{ route('profile') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button style="border: none 0px; margin-left: 20px; background-color:white" type="submit"><span><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i></span> Logout</button>
+                    </form>
                     </li>
                 </ul>
             </li>
         </ul>
-
         <!-- Sidebar -->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
