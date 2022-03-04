@@ -10,21 +10,9 @@ use App\Models\Profile;
 class RuanganController extends Controller
 {
     public function index(){
-        $jenisruangans = Ruangan::all();
-
-        foreach ($jenisruangans as $jenisruang) {
-            $namajenisRuang = $jenisruang->jenis_ruangan_id;
-        }
-
         return view('ruangan', [
             'ruangans' => Ruangan::all(),
-            'jenisruang' => Jenis_Ruangan::where('id', $namajenisRuang )->get()
         ]);
-
-        // dd($namajenisRuang);
-        
-        // $ruangans = 'ruangans';
-        // dd($ruangans);
     }
 
     public function add(){

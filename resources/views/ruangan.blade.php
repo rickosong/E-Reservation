@@ -97,10 +97,12 @@
                                                     <td>{{ $ruangan->deskripsi }}</td>
                                                     <td>{{ $ruangan->harga }}</td>
                                                     <td>{{ $ruangan->fasilitas }}</td>
-                                                    @foreach ($jenisruang as $jenis)
-                                                    <td>{{ $ruangan->jenis_ruangan_id }}.{{ $jenis->jenis_ruangan }}</td>
+                                                        @if ($ruangan->jenis_ruangan_id == 1)
+                                                            <td>{{ 'Ruangan Besar'}}</td>
+                                                        @else
+                                                            <td>{{ 'Ruangan Kecil'}}</td>
+                                                        @endif
                                                     {{-- @dump($jenis->jenis_ruangan) --}}
-                                                    @endforeach
                                                     <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
                                                     <td> 
                                                     <a class="btn btn-primary" href="edit-ruangan.php"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
@@ -129,10 +131,10 @@
 </div>
 
 <!-- jQuery -->
-<script src="('startmin-master/js/jquery.min.js')"></script>
+<script src="startmin-master/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="('startmin-master/js/bootstrap.min.js') "></script>
+<script src="startmin-master/js/bootstrap.min.js "></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="startmin-master/js/metisMenu.min.js"></script>
