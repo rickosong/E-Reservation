@@ -67,7 +67,9 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form">
+                                            <form action="{{ route('updateruangan', $ruangan->id) }}" method="POST"  role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="form-group">
                                                     <input class="form-control" type="hidden" require value="{{$ruangan->id }}">
                                                 </div>
@@ -87,13 +89,23 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Fasilitas</label>
-                                                    <input class="form-control" type="text" name="fasilitas" require value="{{ $ruangan->fasilitas }}"> 
+                                                    <textarea class="form-control" name="fasilitas" rows="3" require>{{ $ruangan->fasilitas }}</textarea> 
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Jenis Ruangan</label>
+                                                    <select name="jenisruang" class="form-control">
+                                                        {{-- <option value="{{ $jenisruangan }}">{{ $jenisruangan }}</option> --}}
+                                                        <option selected="true" disabled="disabled"> ---- </option>
+                                                        @foreach ($jenisruangan as $jenis)
+                                                        <option value="{{ $jenis->id }}">{{ $jenis->jenis_ruangan }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Gambar Ruangan</label>
-                                                    <input type="file" accept="image/png, image/jpeg" require/> 
+                                                    <input type="file" accept="image/png, image/jpeg" require name="image" /> 
                                                 </div>
-                                                <button type="submit" class="btn btn-success">Submit</button>
+                                                <button type="submit" class="btn btn-success">Ubah</button>
                                                 <a href="{{ route('ruangan') }}" class="btn btn-default">Kembali </a>
                                             </form>
                                     </div>
@@ -112,16 +124,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="startmin-master/js/jquery.min.js"></script>
+<script src="{{ asset('startmin-master/js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="startmin-master/js/bootstrap.min.js"></script>
+<script src="{{ asset('startmin-master/js/bootstrap.min.js') }}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="startmin-master/js/metisMenu.min.js"></script>
+<script src="{{ asset('startmin-master/js/metisMenu.min.js') }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="startmin-master/js/startmin.js"></script>
+<script src="{{ asset('startmin-master/js/startmin.js') }}"></script>
 
 </body>
 </html>

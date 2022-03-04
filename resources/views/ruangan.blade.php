@@ -76,6 +76,12 @@
                                             {{ session('successDeleteRuangan') }}
                                           </div>
                                         @endif
+
+                                        @if (session()->has('successUpdateRuangan'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('successUpdateRuangan') }}
+                                          </div>
+                                        @endif
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                 
                                         

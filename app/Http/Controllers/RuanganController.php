@@ -58,11 +58,32 @@ class RuanganController extends Controller
 
         return view('edit-ruangan', [
             'ruangan' => $ruangan,
+            'jenisruangan' => Jenis_Ruangan::all()
         ]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
+        $ruangan = Ruangan::find($id);
 
+        $ruangan->nama_ruangan = $request->nama_ruangan;
+        $ruangan->jenis_ruangan_id = $request->jenisruang;
+        $ruangan->harga = $request->harga;
+        $ruangan->fasilitas = $request->fasilitas;
+        $ruangan->deskripsi = $request->deskripsi;
+        
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('img'), $imageName);
+            
+            $ruangan->image = $imageName;
+        } else {
+            $ruangan->image = $ruangan->image;
+        }
+
+        $ruangan->update();
+        $request->session()->flash('successUpdateRuangan', 'Update Berhasil, Ruangan sudah terupdate');
+        return redirect('/ruangan');
     }
 
 
