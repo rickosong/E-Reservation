@@ -15,14 +15,31 @@ class AkunMemberController extends Controller
     }
 
     public function edit($id){
-        $member = User::find($id);
+        $member = Profile::find($id);
         
         return view('edit-akun-member', [
             'member' => $member,
         ]);
     }
     public function update(Request $request, $id){
+        $profile = Profile::find($id);
 
+        $->name = $request->name;
+        $user->phone_number = $request->nomor;
+        $user->email = $request->email;
+        
+        foreach ($profiles as $profile){
+        $profile->birthday = $request->birthday;
+        $profile->addres = $request->addres;
+        if ($request->hasFile('userimage')) {
+            $image = $request->file('userimage');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('img'), $imageName);
+            
+            $profile->image = $imageName;
+        } else {
+            $profile->image = $profile->image;
+        }
     }
 
     public function destroy($id){

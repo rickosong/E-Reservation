@@ -56,7 +56,7 @@ b<!DOCTYPE html>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Akun profile</h1>
+                    <h1 class="page-header">Akun profile Member</h1>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@ b<!DOCTYPE html>
                                                 <tr>
                                                     {{-- @dump($profile, $profiles) --}}
                                                     <th>Username</th>
-                                                    <th>Nama profile</th>
+                                                    <th>Nama Member</th>
                                                     <th>Tanggal Lahir</th>
                                                     <th>Email</th>
                                                     <th>Tanggal Dibuat</th>
@@ -98,7 +98,7 @@ b<!DOCTYPE html>
                                                     <td> 
                                                         <a class="btn btn-primary" href="{{ route('editakunmember', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
 
-                                                        <form action="{{ route('hapusakunmember', $profile->user->id) }}" method="post">
+                                                        <form action="{{ route('hapusakunmember', $profile->id) }}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus akun {{ $profile->user->name }}') "> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> 

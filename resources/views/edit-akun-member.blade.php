@@ -51,62 +51,7 @@
 
 <div id="wrapper">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand icon-white" href="#"> 
-            <span><img src="img/smkn2-30.png"> </span> E-Room
-            </a>
-        </div>
-
-
-        <!-- Top Navigation: Right Menu -->
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user-circle-o fa-fw icon-white"></i><b class="caret icon-white"></b>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="{{ route('homeadmin') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('ruangan') }}" class="active"><i class="fa fa-building fa-fw"></i> Ruangan</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-users fa-fw"></i> Akun <span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ route('akunmember') }}">Member</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('akunpetugas') }}">Petugas</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('pesanan') }}" class="active"><i class="fa fa-credit-card fa-fw"></i> Pesanan</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
+    @include('partials.navbaradmin')
 
     <!-- Page Content -->
     <div id="page-wrapper">
@@ -123,31 +68,37 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Form Edit
+                                    Form Edit Profile Member
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form">
+                                            <form role="form" method="post" action="{{ route('updateakunmember', $member->id) }} " enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="form-group">
                                                     <label>Nama Member</label>
-                                                    <input class="form-control" require>
+                                                    <input class="form-control" require value="{{ $member->user->name }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" require>
+                                                    <input class="form-control" require value="{{ $member->user->email }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Alamat</label>
-                                                    <textarea class="form-control" rows="3" require></textarea>
+                                                    <textarea class="form-control" rows="3" require>{{ $member->addres }}</textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Tanggal Dibuat</label>
-                                                    <input class="form-control" type="datetime-local" require>
+                                                    <label>Tanggal Lahir</label>
+                                                    <input class="form-control" type="text" require value="{{ $member->birthday }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>No Telepon</label>
-                                                    <input class="form-control" require> 
+                                                    <input class="form-control" type="number" require value="{{ $member->user->phone_number }}"> 
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Gambar Member</label>
+                                                    <input class="form-control" type="file" require> 
                                                 </div>
                                                 <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
             <input type="button" class="btn btn-default" value="Kembali" name="Batal"

@@ -65,7 +65,7 @@ Route::get('/homepage/aboutpage', [HomeController::class, 'aboutPage'])->name('a
 Route::get('/homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin')->middleware('auth', 'isAdmin');
 // Admin-akunMember
 Route::get('/akunmember', [AkunMemberController::class, 'index'])->name ('akunmember')->middleware('auth', 'isAdmin');
-Route::get('/akunmember/edit/{user:id}', [AkunMemberController::class, 'edit'])->name ('editakunmember')->middleware('auth', 'isAdmin');
+Route::get('/akunmember/edit/{profile:id}', [AkunMemberController::class, 'edit'])->name ('editakunmember')->middleware('auth', 'isAdmin');
 Route::put('/akunmember/update/{user:id}', [AkunMemberController::class, 'update'])->name ('updateakunmember')->middleware('auth', 'isAdmin');
 Route::delete('/akunmember/delete/{user:id}', [AkunMemberController::class, 'destroy'])->name ('hapusakunmember')->middleware('auth', 'isAdmin');
 // Admin-akunMember End
