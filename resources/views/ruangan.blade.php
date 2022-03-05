@@ -103,11 +103,7 @@
                                                     <td>{{ $ruangan->deskripsi }}</td>
                                                     <td>{{ $ruangan->harga }}</td>
                                                     <td>{{ $ruangan->fasilitas }}</td>
-                                                        @if ($ruangan->jenis_ruangan_id == 1)
-                                                            <td>{{ 'Ruangan Besar'}}</td>
-                                                        @else
-                                                            <td>{{ 'Ruangan Kecil'}}</td>
-                                                        @endif
+                                                    <td>{{ $ruangan->jenis_ruangan->jenis_ruangan}}</td>
                                                     {{-- @dump($jenis->jenis_ruangan) --}}
                                                     <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
                                                     <td> 

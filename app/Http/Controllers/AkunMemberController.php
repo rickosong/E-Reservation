@@ -20,7 +20,7 @@ class AkunMemberController extends Controller
         // dd($member);
 
         return view('akun-member', [
-            'members' => User::all(),
+            'profiles' => Profile::all(),
         ]);
     }
 }
