@@ -70,25 +70,43 @@
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
-                                                    <th>Nama Petugas</th>
+                                                    <th>Username</th>
+                                                    <th>Nama User</th>
+                                                    <th>Role</th>
+                                                    <th>Tanggal Lahir</th>
                                                     <th>Email</th>
-                                                    <th>Alamat</th>
                                                     <th>Tanggal Dibuat</th>
-                                                    <th>No Telepon</th>
+                                                    <th>Nomor Telepon</th>
+                                                    <th>Alamat</th>
+                                                    <th>Foto Profil</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                    <td>Muhammad Rizky</td>
-                                                    <td>rizky123@gmail.com</td>
-                                                    <td>Banjarmasin</td>
-                                                    <td>5-1-2022 02:00 PM</td>
-                                                    <td>0812345678910</td>
-                                                    <td> 
-                                                    <a class="btn btn-primary" href="edit-akun-petugas.php" <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
-                                                    <a class="btn btn-danger" href="" <i class='fa fa-trash' aria-hidden='true'></i> Hapus</a> </td>
+                                                @foreach ($profiles as $profile)
+                                                <tr>
+                                                    @if ($profile->user->jenis_role_id !== 2)
+                                                        <td>{{ $profile->user->username }}</td>
+                                                        <td>{{ $profile->user->name }}</td>
+                                                        <td>{{ $profile->user->jenis_role->jenis_role }}</td>
+                                                        <td>{{ $profile->birthday }}</td>
+                                                        <td>{{ $profile->user->email }}</td>
+                                                        <td>{{ $profile->user->created_at }}</td>
+                                                        <td>{{ $profile->user->phone_number }}</td>
+                                                        <td>{{ Str::limit($profile->addres, 25) }}</td>
+                                                        <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
+                                                        <td> 
+                                                            <a class="btn btn-primary" href="{{ route('editakunpetugas', $profile->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+
+                                                        <form action="{{ route('hapusakunpetugas', $profile->user->id) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus akun {{ $profile->user->name }}') "> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> 
+                                                        </form>
+                                                        </td>
+                                                    @endif
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

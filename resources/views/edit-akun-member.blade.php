@@ -100,9 +100,8 @@
                                                     <label>Gambar Member</label>
                                                     <input class="form-control" name="image" type="file" require> 
                                                 </div>
-                                                <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
-            <input type="button" class="btn btn-default" value="Kembali" name="Batal"
-            onClick="window.location='akun-member.php';" />
+                                                <button type="submit" class="btn btn-success" name="Submit">Ubah Profile</button>
+            <a href="{{ route('akunmember') }}" class="btn btn-default">Kembali</a>
                                             </form>
                                     </div>
                                     
