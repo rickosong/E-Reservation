@@ -44,7 +44,7 @@
                                 <a href="{{ route('akunmember') }}">Member</a>
                             </li>
                             <li>
-                                <a href="{{ route('akunpetugas') }}">Petugas</a>
+                                <a href="{{ route('akunpetugas') }}">Petugas dan Admin</a>
                             </li>
                         </ul>
                     </li>
