@@ -15,4 +15,9 @@ class Penyewaan extends Model
         'checkout',
         'status_id',
     ];
+
+    public function penyewaan(){
+        return $this->belongsTo(Jenis_Ruangan::class);
+    }
+
 }

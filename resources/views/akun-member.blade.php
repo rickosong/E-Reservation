@@ -56,7 +56,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Akun Member</h1>
+                    <h1 class="page-header">Akun profile</h1>
                 </div>
             </div>
 
@@ -65,25 +65,31 @@
                                         <table id="dataTables-example" class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    {{-- @dump($member, $profiles) --}}
+                                                    {{-- @dump($profile, $profiles) --}}
                                                     <th>Username</th>
-                                                    <th>Nama Member</th>
+                                                    <th>Nama profile</th>
+                                                    <th>Tanggal Lahir</th>
                                                     <th>Email</th>
                                                     <th>Tanggal Dibuat</th>
                                                     <th>Nomor Telepon</th>
+                                                    <th>Alamat</th>
+                                                    <th>Foto Profil</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                @foreach ($members as $member)
-                                                {{-- @dump($member) --}}
-                                                    @if ($member ->id == 2)
-                                                    <td>{{ $member->username }}</td>
-                                                    <td>{{ $member->name }}</td>
-                                                    <td>{{ $member->email }}</td>
-                                                    <td>{{ $member->created_at }}</td>
-                                                    <td>{{ $member->phone_number }}</td>
+                                                @foreach ($profiles as $profile)
+                                                {{-- @dump($profile->user) --}}
+                                                    @if ($profile ->user->jenis_role_id == 2)
+                                                    <td>{{ $profile->user->username }}</td>
+                                                    <td>{{ $profile->user->name }}</td>
+                                                    <td>{{ $profile->birthday }}</td>
+                                                    <td>{{ $profile->user->email }}</td>
+                                                    <td>{{ $profile->user->created_at }}</td>
+                                                    <td>{{ $profile->user->phone_number }}</td>
+                                                    <td>{{ $profile->addres }}</td>
+                                                    <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
                                                     <td> 
                                                     <a class="btn btn-primary" href="edit-akun-member.php"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
                                                     <a class="btn btn-danger" href=""> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</a> </td>

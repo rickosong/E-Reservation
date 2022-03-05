@@ -16,4 +16,9 @@ class Ruangan extends Model
         'image',
         'deskripsi',
     ];
+
+    public function jenis_ruangan(){
+        return $this->belongsTo(Jenis_Ruangan::class);
+    }
+
 }
