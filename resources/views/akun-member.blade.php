@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+b<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -63,6 +63,11 @@
             <div class="panel-body">
                                     <div class="table-responsive">
                                         <table id="dataTables-example" class="table table-striped table-bordered table-hover">
+                                            @if (session()->has('successDeleteMember'))
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ session('successDeleteMember') }}
+                                                </div>
+                                            @endif
                                             <thead>
                                                 <tr>
                                                     {{-- @dump($profile, $profiles) --}}
@@ -91,8 +96,14 @@
                                                     <td>{{ $profile->addres }}</td>
                                                     <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
                                                     <td> 
-                                                    <a class="btn btn-primary" href="edit-akun-member.php"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
-                                                    <a class="btn btn-danger" href=""> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</a> </td>
+                                                        <a class="btn btn-primary" href="{{ route('editakunmember', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+
+                                                        <form action="{{ route('hapusakunmember', $profile->user->id) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus akun {{ $profile->user->name }}') "> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> 
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                                     @endif
                                                     

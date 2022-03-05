@@ -63,15 +63,23 @@ Route::get('/homepage/aboutpage', [HomeController::class, 'aboutPage'])->name('a
 // Admin
 // Route::get('/adminpage', [HomeController::class, 'testViewAdmin'])->name('adminview')
 Route::get('/homeadmin', [AdminHomeController::class, 'index'])->name ('homeadmin')->middleware('auth', 'isAdmin');
+// Admin-akunMember
 Route::get('/akunmember', [AkunMemberController::class, 'index'])->name ('akunmember')->middleware('auth', 'isAdmin');
+Route::get('/akunmember/edit/{user:id}', [AkunMemberController::class, 'edit'])->name ('editakunmember')->middleware('auth', 'isAdmin');
+Route::put('/akunmember/update/{user:id}', [AkunMemberController::class, 'update'])->name ('updateakunmember')->middleware('auth', 'isAdmin');
+Route::delete('/akunmember/delete/{user:id}', [AkunMemberController::class, 'destroy'])->name ('hapusakunmember')->middleware('auth', 'isAdmin');
+// Admin-akunMember End
+// Admin-akunPetugasAdmin
 Route::get('/akunpetugas', [AkunPetugasController::class, 'index'])->name ('akunpetugas')->middleware('auth', 'isAdmin');
-Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->middleware('auth', 'isAdmin');
+Route::get('/buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas')->middleware('auth', 'isAdmin');
+// Admin-akunPtugasAdmin End
 // Admin-Ruangan
 Route::get('/ruangan', [RuanganController::class, 'index'])->name ('ruangan')->middleware('auth', 'isAdmin');
 Route::get('/ruangan/buaturuangan', [RuanganController::class, 'add'])->name ('buatruangan')->middleware('auth', 'isAdmin');
 Route::post('/ruangan/buatruangan', [RuanganController::class, 'store'])->name ('storeruangan')->middleware('auth', 'isAdmin');
-Route::delete('/ruangan/hapus/{ruangan:id}', [RuanganController::class, 'destroy'])->name ('hapusruangan')->middleware('auth', 'isAdmin');
+Route::delete('/ruangan/delete/{ruangan:id}', [RuanganController::class, 'destroy'])->name ('hapusruangan')->middleware('auth', 'isAdmin');
 Route::get('/ruangan/edit/{ruangan:id}', [RuanganController::class, 'edit'])->name ('editruangan')->middleware('auth', 'isAdmin');
 Route::put('/ruangan/update/{ruangan:id}', [RuanganController::class, 'update'])->name ('updateruangan')->middleware('auth', 'isAdmin');
 // Admin-Ruangan
-Route::get('/buatakunpetugas', [BuatPetugasController::class, 'index'])->name ('buatakunpetugas')->middleware('auth', 'isAdmin');
+// Admin-Pesanan
+Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->middleware('auth', 'isAdmin');
