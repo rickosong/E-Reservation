@@ -78,27 +78,27 @@
                                                 @method('PUT')
                                                 <div class="form-group">
                                                     <label>Nama Member</label>
-                                                    <input class="form-control" require value="{{ $member->user->name }}">
+                                                    <input class="form-control" name="name" require value="{{ $member->user->name }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" require value="{{ $member->user->email }}">
+                                                    <input class="form-control" name="email" require value="{{ $member->user->email }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Alamat</label>
-                                                    <textarea class="form-control" rows="3" require>{{ $member->addres }}</textarea>
+                                                    <textarea class="form-control" name="addres" rows="3" require>{{ $member->addres }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Tanggal Lahir</label>
-                                                    <input class="form-control" type="text" require value="{{ $member->birthday }}">
+                                                    <input class="form-control" name="birthday" type="text" require value="{{ $member->birthday }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>No Telepon</label>
-                                                    <input class="form-control" type="number" require value="{{ $member->user->phone_number }}"> 
+                                                    <input class="form-control" name="nomor" type="number" require value="{{ $member->user->phone_number }}"> 
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Gambar Member</label>
-                                                    <input class="form-control" type="file" require> 
+                                                    <input class="form-control" name="image" type="file" require> 
                                                 </div>
                                                 <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
             <input type="button" class="btn btn-default" value="Kembali" name="Batal"

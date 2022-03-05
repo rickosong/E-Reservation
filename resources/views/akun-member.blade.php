@@ -68,6 +68,11 @@ b<!DOCTYPE html>
                                                     {{ session('successDeleteMember') }}
                                                 </div>
                                             @endif
+                                            @if (session()->has('successUpdateMember'))
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ session('successUpdateMember') }}
+                                                </div>
+                                            @endif
                                             <thead>
                                                 <tr>
                                                     {{-- @dump($profile, $profiles) --}}
@@ -93,7 +98,7 @@ b<!DOCTYPE html>
                                                     <td>{{ $profile->user->email }}</td>
                                                     <td>{{ $profile->user->created_at }}</td>
                                                     <td>{{ $profile->user->phone_number }}</td>
-                                                    <td>{{ $profile->addres }}</td>
+                                                    <td>{{ Str::limit($profile->addres, 25) }}</td>
                                                     <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
                                                     <td> 
                                                         <a class="btn btn-primary" href="{{ route('editakunmember', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>

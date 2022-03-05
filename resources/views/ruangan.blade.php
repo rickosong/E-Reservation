@@ -100,9 +100,9 @@
                                                 @foreach ($ruangans as $ruangan)
                                             <tr>
                                                     <td>{{ $ruangan->nama_ruangan }}</td>
-                                                    <td>{{ $ruangan->deskripsi }}</td>
+                                                    <td>{{ Str::limit($ruangan->deskripsi, 100) }}</td>
                                                     <td>{{ $ruangan->harga }}</td>
-                                                    <td>{{ $ruangan->fasilitas }}</td>
+                                                    <td>{{  Str::limit($ruangan->fasilitas, 50) }}</td>
                                                     <td>{{ $ruangan->jenis_ruangan->jenis_ruangan}}</td>
                                                     {{-- @dump($jenis->jenis_ruangan) --}}
                                                     <td><img src="{{ asset('/img') }}/{{ $ruangan->image }}" style="width:120px; height:60px;"></td>
