@@ -55,8 +55,8 @@ class AkunPetugasController extends Controller
         }
 
         $profile->update();
-        $request->session()->flash('successUpdateMember', 'Update Berhasil, Member sudah terupdate');
-        return redirect('/akunmember');
+        $request->session()->flash('successUpdateUser', 'Update Berhasil, User sudah terupdate');
+        return redirect('/akunpetugas');
     }
 
     public function destroy($id){
@@ -70,7 +70,7 @@ class AkunPetugasController extends Controller
         $profile->delete();
         $user->delete();
 
-        return back()->with('successDeleteMember', 'Akun Member Berhasil Dihapus');
+        return back()->with('successDeleteUser', 'Akun User Berhasil Dihapus');
     }
 
 }

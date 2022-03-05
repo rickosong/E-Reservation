@@ -7,6 +7,12 @@ b<!DOCTYPE html>
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <style>
+        table{
+            font-size: 14px;
+        }
+    </style>
+
     <title>Admin Dashboard</title>
 
     <!-- Bootstrap Core CSS -->

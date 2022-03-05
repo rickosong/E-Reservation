@@ -84,6 +84,18 @@
                                                     <input class="form-control" require>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label>Jenis Ruangan</label>
+                                                    <select name="roles" class="form-control">
+                                                        {{-- <option value="{{ $jenisruangan }}">{{ $jenisruangan }}</option> --}}
+                                                        <option selected="true" disabled="disabled"> ---- </option>
+                                                        @foreach ($roles as $role)
+                                                            @if ($role->id !== 2)
+                                                                <option value="{{ $role->id }}">{{ $role->jenis_role }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
                                                     <label>Alamat</label>
                                                     <textarea class="form-control" rows="3" require></textarea>
                                                 </div>
