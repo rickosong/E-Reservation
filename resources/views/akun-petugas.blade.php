@@ -63,11 +63,16 @@
                     <h1 class="page-header">Akun Petugas</h1>
                 </div>
             </div>
-            <a class="btn btn-success" href="{{ route('buatakunpetugas') }}" <i class='fa fa-edit' aria-hidden='true'></i> Buat Akun Baru</a>
+            <a class="btn btn-success" href="{{ route('buatakunpetugas') }}"> <i class='fa fa-edit' aria-hidden='true'></i> Buat Akun Baru</a>
 
             <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            @if (session()->has('successCreateUser'))
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ session('successCreateUser') }}
+                                                </div>
+                                            @endif
                                             <thead>
                                                 <tr>
                                                     <th>Username</th>

@@ -28,6 +28,10 @@ class AkunPetugasController extends Controller
             'email' => 'required|email:dns|min:3|max:255|unique:users'
         ]);
 
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->extension();
+        $image->move(public_path('img'), $imageName);
+
         $user = new User();
         // encrypted password
         $password = bcrypt($request->password);
@@ -36,7 +40,7 @@ class AkunPetugasController extends Controller
         $user->password = $password;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->jenis_role_id = 2;
+        $user->jenis_role_id = $request->roles;
         $user->phone_number = $request->nomor;
 
         $user->save();
@@ -44,15 +48,15 @@ class AkunPetugasController extends Controller
         Profile::create(
             [
                 'user_id' => $user->id,
-                'birthday' => 'silahkan isi tanggal lahir anda',
-                'addres' => 'silahkan isi alamat anda',
-                'image' => 'user.svg',
+                'birthday' => $request->birthday,
+                'addres' => $request->addres,
+                'image' => $imageName
             ]
         );
 
         $request->session()->flash('successCreateUser', 'Registrasi Berhasil, Silahkan Login');
 
-        return redirect('/login');
+        return redirect('/akunpetugas');
     }
 
     public function edit($id){

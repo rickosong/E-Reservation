@@ -59,7 +59,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Buat Akun Petugas</h1>
+                            <h1 class="page-header">Buat Akun Petugas dan Admin</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -74,17 +74,26 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form">
+                                            <form role="form" method="POST" action="{{ route('storeakunpetugas') }}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="form-group">
-                                                    <label>Nama Petugas</label>
-                                                    <input class="form-control" require>
+                                                    <label>Username</label>
+                                                    <input class="form-control" name="username" type="text" require >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" name="password" type="password" require>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nama</label>
+                                                    <input class="form-control" name="name" type="text" require>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" require>
+                                                    <input class="form-control" name="email" type="email" require>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Jenis Ruangan</label>
+                                                    <label>Jenis Role</label>
                                                     <select name="roles" class="form-control">
                                                         {{-- <option value="{{ $jenisruangan }}">{{ $jenisruangan }}</option> --}}
                                                         <option selected="true" disabled="disabled"> ---- </option>
@@ -96,18 +105,22 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Alamat</label>
-                                                    <textarea class="form-control" rows="3" require></textarea>
+                                                    <label>Tanggal Lahir</label>
+                                                    <input class="form-control" name="birthday" type="text" require>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Tanggal Dibuat</label>
-                                                    <input class="form-control" type="datetime-local" require>
+                                                    <label>Alamat</label>
+                                                    <textarea class="form-control" rows="3" name="addres" require></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>No Telepon</label>
-                                                    <input class="form-control" require> 
+                                                    <input class="form-control" name="nomor" type="number" require> 
                                                 </div>
-                                                <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
+                                                <div class="form-group">
+                                                    <label>Gambar Member</label>
+                                                    <input class="form-control" name="image" type="file" require> 
+                                                </div>
+                                                <button type="submit" class="btn btn-success">Buat Akun</button>
                                                 <a href="{{ route('akunpetugas') }}" class="btn btn-default"> Kembali </a>
                                             </form>
                                     </div>

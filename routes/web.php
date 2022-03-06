@@ -74,7 +74,7 @@ Route::get('/akunpetugas/buatakunpetugas', [AkunPetugasController::class, 'add']
 Route::post('/akunpetugas/buatakunpetugas', [AkunPetugasController::class, 'store'])->name ('storeakunpetugas')->middleware('auth', 'isAdmin');
 Route::get('/akunpetugas/edit/{profile:id}', [AkunPetugasController::class, 'edit'])->name ('editakunpetugas')->middleware('auth', 'isAdmin');
 Route::put('/akunpetugas/update/{user:id}', [AkunPetugasController::class, 'update'])->name ('updateakunpetugas')->middleware('auth', 'isAdmin');
-Route::get('/akunpetugas/delete/{user:id}', [AkunPetugasController::class, 'destroy'])->name ('hapusakunpetugas')->middleware('auth', 'isAdmin');
+Route::delete('/akunpetugas/delete/{user:id}', [AkunPetugasController::class, 'destroy'])->name ('hapusakunpetugas')->middleware('auth', 'isAdmin');
 // Admin-akunPtugasAdmin End
 // Admin-Ruangan
 Route::get('/ruangan', [RuanganController::class, 'index'])->name ('ruangan')->middleware('auth', 'isAdmin');
