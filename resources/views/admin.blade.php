@@ -63,9 +63,7 @@
                                             <i class="fa fa-users fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            @foreach ($users as $user)
-                                                <div class="huge">{{ $loop->iteration }}</div>
-                                            @endforeach
+                                            <div class="huge">{{ $users }}</div>
                                             <div>Jumlah Member</div>
                                         </div>
                                     </div>

@@ -10,15 +10,10 @@ use App\Models\Penyewaan;
 class AdminHomeController extends Controller
 {
     public function index(){
-        // $users = User::all();
+        $users = User::all();
 
-        // foreach ($users as $user) {
-        //     $user = $loop->iteration;
-        //     dd($user);
-        // }
+        $users = $users->count();
 
-        return view('admin', [
-            'users' => User::all(),
-        ]);
+        return view('admin', compact('users'));
     }
 }

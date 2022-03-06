@@ -23,23 +23,29 @@ class AkunMemberController extends Controller
     }
     public function update(Request $request, $id){
         $profile = Profile::find($id);
+        $user = User::find($id);
+        $profiles = Profile::where('user_id', $id)->get();
 
-        $profile->user->name = $request->name;
-        $profile->user->phone_number = $request->nomor;
-        $profile->user->email = $request->email;
+        $user->name = $request->name;
+        $user->phone_number = $request->nomor;
+        $user->email = $request->email;
+        
+        foreach ($profiles as $profile){
         $profile->birthday = $request->birthday;
         $profile->addres = $request->addres;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('img'), $imageName);
-            
-            $profile->image = $imageName;
-        } 
-        else {
-            $profile->image = $profile->image;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->extension();
+                $image->move(public_path('img'), $imageName);
+                
+                $profile->image = $imageName;
+            } 
+            else {
+                $profile->image = $profile->image;
+            }
         }
 
+        $user->update();
         $profile->update();
         $request->session()->flash('successUpdateMember', 'Update Berhasil, Member sudah terupdate');
         return redirect('/akunmember');

@@ -22,7 +22,37 @@ class AkunPetugasController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate([
+            'username' => 'required|min:3|max:255|unique:users',
+            'password' => 'required|min:3|max:255',
+            'email' => 'required|email:dns|min:3|max:255|unique:users'
+        ]);
 
+        $user = new User();
+        // encrypted password
+        $password = bcrypt($request->password);
+
+        $user->username = $request->username;
+        $user->password = $password;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->jenis_role_id = 2;
+        $user->phone_number = $request->nomor;
+
+        $user->save();
+
+        Profile::create(
+            [
+                'user_id' => $user->id,
+                'birthday' => 'silahkan isi tanggal lahir anda',
+                'addres' => 'silahkan isi alamat anda',
+                'image' => 'user.svg',
+            ]
+        );
+
+        $request->session()->flash('successCreateUser', 'Registrasi Berhasil, Silahkan Login');
+
+        return redirect('/login');
     }
 
     public function edit($id){
@@ -35,25 +65,30 @@ class AkunPetugasController extends Controller
     }
 
     public function update(Request $request, $id){
-        $profile = Profile::find($id);
+        $user = User::find($id);
+        $profiles = Profile::where('user_id', $id)->get();
 
-        $profile->user->name = $request->name;
-        $profile->user->phone_number = $request->nomor;
-        $profile->user->jenis_role->jenis_role = $request->role;
-        $profile->user->email = $request->email;
+        $user->name = $request->name;
+        $user->phone_number = $request->nomor;
+        $user->jenis_role_id = $request->role;
+        $user->email = $request->email;
+        
+        foreach ($profiles as $profile){
         $profile->birthday = $request->birthday;
         $profile->addres = $request->addres;
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('img'), $imageName);
-            
-            $profile->image = $imageName;
-        } 
-        else {
-            $profile->image = $profile->image;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->extension();
+                $image->move(public_path('img'), $imageName);
+                
+                $profile->image = $imageName;
+            } 
+            else {
+                $profile->image = $profile->image;
+            }
         }
 
+        $user->update();
         $profile->update();
         $request->session()->flash('successUpdateUser', 'Update Berhasil, User sudah terupdate');
         return redirect('/akunpetugas');

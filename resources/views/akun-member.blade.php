@@ -107,7 +107,7 @@ b<!DOCTYPE html>
                                                     <td>{{ Str::limit($profile->addres, 25) }}</td>
                                                     <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
                                                     <td> 
-                                                        <a class="btn btn-primary" href="{{ route('editakunmember', $profile->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+                                                        <a class="btn btn-primary" href="{{ route('editakunmember', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
 
                                                         <form action="{{ route('hapusakunmember', $profile->user->id) }}" method="post">
                                                             @csrf
