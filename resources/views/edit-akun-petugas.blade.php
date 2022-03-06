@@ -59,7 +59,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Edit Akun Petugas</h1>
+                            <h1 class="page-header">Edit Akun Petugas dan Admin</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -69,35 +69,52 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Form Edit
+                                    Form Edit Akun Petugas dan Admin
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <form role="form">
+                                            <form role="form" method="POST" action="{{ route('updateakunpetugas', $profile->user->id) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="form-group">
-                                                    <label>Nama Petugas</label>
-                                                    <input class="form-control" require>
+                                                    <label>Nama</label>
+                                                    <input class="form-control" name="name" type="text" require value="{{ $profile->user->name }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input class="form-control" require>
+                                                    <input class="form-control" name="email" type="email" require value="{{ $profile->user->email }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Jenis Role</label>
+                                                    <select name="roles" class="form-control">
+                                                        {{-- <option value="{{ $jenisruangan }}">{{ $jenisruangan }}</option> --}}
+                                                        <option selected="true" disabled="disabled"> ---- </option>
+                                                        @foreach ($roles as $role)
+                                                            @if ($role->id !== 2)
+                                                                <option value="{{ $role->id }}">{{ $role->jenis_role }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Tanggal Lahir</label>
+                                                    <input class="form-control" name="birthday" type="text" require value="{{ $profile->birthday }}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Alamat</label>
-                                                    <textarea class="form-control" rows="3" require></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Tanggal Dibuat</label>
-                                                    <input class="form-control" type="datetime-local" require>
+                                                    <textarea class="form-control" rows="3" name="addres" require>{{ $profile->addres }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>No Telepon</label>
-                                                    <input class="form-control" require> 
+                                                    <input class="form-control" name="nomor" type="number" require value="{{ $profile->user->phone_number }}"> 
                                                 </div>
-                                                <input type="submit" class="btn btn-success" value="Submit" name="Submit" />
-            <input type="button" class="btn btn-default" value="Kembali" name="Batal"
-            onClick="window.location='akun-petugas.php';" />
+                                                <div class="form-group">
+                                                    <label>Gambar Member</label>
+                                                    <input class="form-control" name="image" type="file" require> 
+                                                </div>
+                                                <button type="submit" class="btn btn-success">Ubah Akun</button>
+                                                <a href="{{ route('akunpetugas') }}" class="btn btn-default"> Kembali </a>
                                             </form>
                                     </div>
                                     

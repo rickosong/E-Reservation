@@ -71,7 +71,7 @@
 											><span><i class="fa fa-reply" aria-hidden="true"></i></span> Kembali</a
 										>
 										<button class="btn btn-orange" type="submit">
-											<span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Masuk
+											<span><i class="fa fa-sign-in" aria-hidden="true"></i></span> Ubah
 										</button>
 									</div>
 								</div>

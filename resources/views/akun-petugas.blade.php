@@ -67,10 +67,18 @@
 
             <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <table id="dataTables-example" class="table table-striped table-bordered table-hover" >
                                             @if (session()->has('successCreateUser'))
                                                 <div class="alert alert-success" role="alert">
                                                     {{ session('successCreateUser') }}
+                                                </div>
+                                            @if (session()->has('successDeleteUser'))
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ session('successDeleteUser') }}
+                                                </div>
+                                            @if (session()->has('successUpdateUser'))
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ session('successUpdateUser') }}
                                                 </div>
                                             @endif
                                             <thead>

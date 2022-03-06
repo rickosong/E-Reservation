@@ -62,8 +62,8 @@ class AkunPetugasController extends Controller
     public function edit($id){
         $profile = Profile::find($id);
         
-        return view('edit-akun-member', [
-            'profiles' => $profile,
+        return view('edit-akun-petugas', [
+            'profile' => $profile,
             'roles' => Jenis_Role::all(),
         ]);
     }
@@ -74,7 +74,7 @@ class AkunPetugasController extends Controller
 
         $user->name = $request->name;
         $user->phone_number = $request->nomor;
-        $user->jenis_role_id = $request->role;
+        $user->jenis_role_id = $request->roles;
         $user->email = $request->email;
         
         foreach ($profiles as $profile){
