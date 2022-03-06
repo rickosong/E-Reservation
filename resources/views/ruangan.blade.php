@@ -61,7 +61,7 @@
                     <h1 class="page-header">Data Ruangan</h1>
                 </div>
             </div>
-            <a class="btn btn-success" href="{{ route('buatruangan') }}" <i class='fa fa-edit' aria-hidden='true'></i> Buat Ruangan Baru</a>
+            <a class="btn btn-success" href="{{ route('buatruangan') }}"> <i class='fa fa-edit' aria-hidden='true'></i> Buat Ruangan Baru</a>
 
             <div class="panel-body">
                                     <div class="table-responsive">

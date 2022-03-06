@@ -67,15 +67,17 @@
 
             <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table id="dataTables-example" class="table table-striped table-bordered table-hover" >
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             @if (session()->has('successCreateUser'))
                                                 <div class="alert alert-success" role="alert">
                                                     {{ session('successCreateUser') }}
                                                 </div>
+                                            @endif
                                             @if (session()->has('successDeleteUser'))
                                                 <div class="alert alert-success" role="alert">
                                                     {{ session('successDeleteUser') }}
                                                 </div>
+                                            @endif
                                             @if (session()->has('successUpdateUser'))
                                                 <div class="alert alert-success" role="alert">
                                                     {{ session('successUpdateUser') }}
@@ -97,28 +99,28 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($profiles as $profile)
-                                                <tr>
                                                     @if ($profile->user->jenis_role_id !== 2)
-                                                        <td>{{ $profile->user->username }}</td>
-                                                        <td>{{ $profile->user->name }}</td>
-                                                        <td>{{ $profile->user->jenis_role->jenis_role }}</td>
-                                                        <td>{{ $profile->birthday }}</td>
-                                                        <td>{{ $profile->user->email }}</td>
-                                                        <td>{{ $profile->user->created_at }}</td>
-                                                        <td>{{ $profile->user->phone_number }}</td>
-                                                        <td>{{ Str::limit($profile->addres, 25) }}</td>
-                                                        <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
-                                                        <td> 
-                                                            <a class="btn btn-primary" href="{{ route('editakunpetugas', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
+                                                        <tr>
+                                                            <td>{{ $profile->user->username }}</td>
+                                                            <td>{{ $profile->user->name }}</td>
+                                                            <td>{{ $profile->user->jenis_role->jenis_role }}</td>
+                                                            <td>{{ $profile->birthday }}</td>
+                                                            <td>{{ $profile->user->email }}</td>
+                                                            <td>{{ $profile->user->created_at }}</td>
+                                                            <td>{{ $profile->user->phone_number }}</td>
+                                                            <td>{{ Str::limit($profile->addres, 25) }}</td>
+                                                            <td><img class=" logo" src="{{ asset('img/') }}/{{ $profile->image }}" alt="" style="width:100px; height:100px;"/></td>
+                                                            <td> 
+                                                                <a class="btn btn-primary" href="{{ route('editakunpetugas', $profile->user->id) }}"> <i class='fa fa-edit' aria-hidden='true'></i> Edit</a>
 
-                                                        <form action="{{ route('hapusakunpetugas', $profile->user->id) }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus akun {{ $profile->user->name }}') "> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> 
-                                                        </form>
-                                                        </td>
+                                                            <form action="{{ route('hapusakunpetugas', $profile->user->id) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus akun {{ $profile->user->name }}') "> <i class='fa fa-trash' aria-hidden='true'></i> Hapus</button> 
+                                                            </form>
+                                                            </td>
+                                                        </tr>
                                                     @endif
-                                                </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>

@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ $users }}</div>
-                                            <div>Jumlah Member</div>
+                                            <div>Jumlah User</div>
                                         </div>
                                     </div>
                                 </div>
