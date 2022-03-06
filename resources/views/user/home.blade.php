@@ -54,93 +54,18 @@
 			<br><br>
 			<h5 class="text-lg-end text-md-end text-sm-end click-postingan"><a href="{{ route('allRuangan') }}">Semua Postingan ></a></h5>
 			<div class="row">
+				@foreach ($ruangans as $ruangan)
 				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
 					<div class="card h-auto">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
+						<img src="{{ asset('img/') }}/{{ $ruangan->image }}" class="card-img-top" style="height: 200px; width:250px;" alt="..." />
 						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 1</h5>
-							<h6 class="price">RP. 50.000</h4>
+							<h5 class="card-title m-1">{{ $ruangan->nama_ruangan }}</h5>
+							<h6 class="price">{{ $ruangan->harga }} </h4>
 							<a href="{{ route('post') }}" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card h-auto">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 2</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card h-auto">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 3</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 4</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 5</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 6</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 7</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 col-6 d-flex align-items-stretch">
-					<div class="card">
-						<img src="../img/img2.jpg" class="card-img-top" alt="..." />
-						<div class="card-body">
-							<h5 class="card-title m-1">Ruang 8</h5>
-							<h6 class="price">RP. 50.000</h4>
-							<a href="#" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>		
 		</div>
 		<!-- card and content -->
