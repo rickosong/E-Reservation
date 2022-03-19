@@ -157,16 +157,16 @@
 </div>
 
 <!-- jQuery -->
-<script src="startmin-master/js/jquery.min.js"></script>
+<script src="{{ asset('startmin-master/js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="startmin-master/js/bootstrap.min.js"></script>
+<script src="{{ asset('startmin-master/js/bootstrap.min.js') }}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="startmin-master/js/metisMenu.min.js"></script>
+<script src="{{ asset('startmin-master/js/metisMenu.min.js') }}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="startmin-master/js/startmin.js"></script>
+<script src="{{ asset('startmin-master/js/startmin.js') }}"></script>
 
 <!-- Data Table -->
 {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
