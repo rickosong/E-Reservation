@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
 
 class PesananController extends Controller
 {
     public function index(){
-        return view('pesanan', ["title" => "Dashboard Admin | Pesanan"]);
+        return view('pesanan', [
+            "title" => "Dashboard Admin | Pesanan",
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);
     }
 }

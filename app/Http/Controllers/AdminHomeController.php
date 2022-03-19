@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Ruangan;
 use App\Models\Penyewaan;
+use App\Models\Profile;
 
 class AdminHomeController extends Controller
 {
@@ -14,6 +15,8 @@ class AdminHomeController extends Controller
 
         $users = $users->count();
 
-        return view('admin', compact('users'));
+        return view('admin', compact('users'), [
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);
     }
 }

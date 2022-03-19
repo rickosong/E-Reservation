@@ -11,6 +11,7 @@ class AkunMemberController extends Controller
     public function index(){
         return view('akun-member', [
             'profiles' => Profile::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -19,6 +20,7 @@ class AkunMemberController extends Controller
         
         return view('edit-akun-member', [
             'member' => $member,
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
     public function update(Request $request, $id){

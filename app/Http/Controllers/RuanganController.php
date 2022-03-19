@@ -12,12 +12,15 @@ class RuanganController extends Controller
     public function index(){
         return view('ruangan', [
             'ruangans' => Ruangan::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
     public function add(){
         return view('buat-ruangan', [
-            'jenisruangan' => Jenis_Ruangan::all()
+            'jenisruangan' => Jenis_Ruangan::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
+
         ]);
 
     }
@@ -58,7 +61,8 @@ class RuanganController extends Controller
 
         return view('edit-ruangan', [
             'ruangan' => $ruangan,
-            'jenisruangan' => Jenis_Ruangan::all()
+            'jenisruangan' => Jenis_Ruangan::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 

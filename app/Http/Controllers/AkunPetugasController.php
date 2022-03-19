@@ -12,12 +12,14 @@ class AkunPetugasController extends Controller
     public function index(){
         return view('akun-petugas', [
             'profiles' => Profile::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
     public function add(){
         return view('buat-akun-petugas', [
             'roles' => Jenis_Role::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
@@ -65,6 +67,7 @@ class AkunPetugasController extends Controller
         return view('edit-akun-petugas', [
             'profile' => $profile,
             'roles' => Jenis_Role::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
 

@@ -12,7 +12,9 @@
         <ul class="nav navbar-right navbar-top-links">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <img class="rounded-circle" src="{{ asset('img/user.svg') }}" alt="user photo">
+                    @foreach ($photo as $gambar)
+                    <img class="rounded-circle" style="width: 20px"; height="20px"; src="{{ asset('img/') }}/{{ $gambar->image }}" alt="user photo">
+                    @endforeach
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="{{ route('profile') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
