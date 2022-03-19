@@ -26,17 +26,12 @@ use App\Http\Controllers\User\profileController;
 |
 */
 
-Route::get('/homepage/posts', function(){
-    return view('reservation.post');
-})->name('post');
+// reservasi
+Route::get('/homepage/ruangan/{ruangan:id}', [RuanganController::class, 'show'])->name('post')->middleware('auth');
+Route::get('/homepage/ruangan/pesan/{ruangan:id}', [PesananController::class, 'create'])->name('pesan')->middleware('auth');
+Route::post('/homepage/ruangan/pesan/{ruangan:id}', [PesananController::class, 'store'])->name('pesanruangan')->middleware('auth');
+Route::get('/homepage/ruangan/pesan/invoice', [PesananController::class, 'invoice'])->name('invoice')->middleware('auth');
 
-Route::get('/homepage/post/pesan', function(){
-    return view('reservation.formpemesanan');
-})->name('formpemesanan');
-
-Route::get('/homepage/post/invoice', function(){
-    return view('reservation.buktipemesanan');
-})->name('invoice');
 
 // Auth
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');

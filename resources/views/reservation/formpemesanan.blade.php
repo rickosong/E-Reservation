@@ -22,26 +22,28 @@
                     <div class="form-group mb-3">
                         <h2>FORM PEMESANAN</h2>
                         <br /><br />
-                        <label for="username" class="teks-kolom">Nama Ruangan:</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Nama Ruangan" />
+                        <label for="ruangan" class="teks-kolom">Nama Ruangan:</label>
+                        <input type="text" class="form-control" id="ruangan" aria-describedby="emailHelp" placeholder="Nama Ruangan" value="{{ $ruangan->nama_ruangan }}" readonly />
                     </div>
                     <div class="form-group mb-3">
-                        <label for="password" class="teks-kolom">Nama Pemesan:</label>
-                        <input type="text" class="form-control" id="password" placeholder="Nama Pemesan" />  
+                        <input type="hidden" class="form-control" name="idruangan" value="{{ $ruangan->id }}" />  
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="hidden" class="form-control" name="iduser" value="{{ auth()->user()->id }}" />  
                     </div>
                     <div class="form-group mb-3">
                         <label for="dari jam" class="teks-kolom">Pesan dari Jam:</label>
-                        <input type="datetime-local" class="form-control" id="dari jam" placeholder="Jam Awal" />  
+                        <input type="datetime-local" class="form-control" id="dari jam" name="jamawal" placeholder="Jam Awal" />  
                     </div>
                     <div class="form-group mb-3">
                         <label for="sampai jam" class="teks-kolom">Sampai Jam:</label>
-                        <input type="datetime-local" class="form-control" id="sampai jam" placeholder="Jam Akhir" />  
+                        <input type="datetime-local" class="form-control" id="sampai jam" name="jamakhir" placeholder="Jam Akhir" />  
                     </div>         
                     <div class="row">
                         <button type="reset" class="btn btn-secondary col-6 col-md-5">
-                            <i class="fa fa-undo" aria-hidden="true"></i> Reset
+                            <i class="fa fa-undo" aria-hidden="true"></i> Kembali
                           </button>
-                        <button type="button" class="btn tombol col-6 col-md-5 ms-auto" data-toggle="modal" data-target="#exampleModalLong">
+                        <button type="submit" class="btn tombol col-6 col-md-5 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan
                           </button>
                     </div>
@@ -77,7 +79,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary col-md-5 " data-dismiss="modal"><span><i class="fa fa-reply" aria-hidden="true"></i></span> Kembali</button>
-                  <a type="button" href="{{ route('invoice') }}" class="btn tombol col-md-5 ms-auto"><i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan</a>
+                  <button type="submit" href="{{ route('invoice') }}" class="btn tombol col-md-5 ms-auto"><i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan</button>
                 </div>
               </div>
             </div>

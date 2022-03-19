@@ -45,7 +45,13 @@ class RuanganController extends Controller
         return redirect('/ruangan');
     }
 
-    public function show(){
+    public function show($id){
+        $ruangan = Ruangan::find($id);
+
+        return view('reservation.post', [
+            'ruangan' => $ruangan,
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);
 
     }
 

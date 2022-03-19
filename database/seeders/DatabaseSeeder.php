@@ -8,6 +8,7 @@ use App\Models\Profile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Jenis_Ruangan;
+use App\Models\Status_pemesanan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -89,6 +90,23 @@ class DatabaseSeeder extends Seeder
                 'image' => 'user.svg',
             ]
         );
+
+        Status_pemesanan::create(
+            [
+                'jenis_status' => 'Sudah Dibayar'
+            ],
+        );
+        Status_pemesanan::create(
+            [
+                'jenis_status' => 'Gagal Dibayar'
+            ],
+        );
+        Status_pemesanan::create(
+            [
+                'jenis_status' => 'Belum Dibayar'
+            ],
+        );
+
     }
     
 }

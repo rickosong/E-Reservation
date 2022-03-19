@@ -10,59 +10,21 @@
 		<title>Semua ruangan</title>
 	</head>
 	<body>
-		<!-- navbar -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="home.html"><img src="../img/smkn2.png" alt="SMKN 2 Banjarmasin" title="SMKN 2 Banjarmasin">E-Reservation</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item active">
-							<a class="nav-link active" href="home.html">Home</span></a>
-						</li>
-                        <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							  Seputar Ruangan
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							  <li><a class="dropdown-item" href="ruangan.html">Ruangan</a></li>
-							  <li><a class="dropdown-item" href="pesananmember.html">Ruangan yang Disewa</a></li>
-							</ul>
-						<li class="nav-item active">
-							<a class="nav-link active" href="aboutpage.html">Tentang Kami</a>
-						</li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="rounded-circle" src="../img/person-circle.svg" alt="user photo">
-                              </a>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.html"><span><i class="fa fa-user-circle" aria-hidden="true"></i></span> Profil</a></li>
-                                <li><a class="dropdown-item" href="landingpage.html"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span> Log Out</a></li>
-							  </ul>
-                        </li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- navbar end -->
+
+		@include('partials.navbar')
 
         <!-- post page start -->
 
         <div class="container-fluid">
             <div class="row">
                 <div class="gambar col-lg-8">
-                    <img src="../img/img2.jpg" class="col-lg-12" alt="">
+                    <img src="{{ asset('img/') }}/{{ $ruangan->image }}" class="col-lg-12" alt="">
                 </div>
     
                 <div class="card justify-content-start fasilitas col-lg-3 mx-auto">
                     <h1 class="text-center">Fasilitas</h1>
                     <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
+                        <li>{{ $ruangan->fasilitas }}</li>
                     </ul>
                 </div>
             </div>
@@ -71,8 +33,8 @@
             <div class="col-lg-12">
                 <div class="card harga">
                     <div class="row">
-						<h1 class="text-start col-lg-6 col-md-6 col-sm-6">RP.50.000/Jam</h1>
-                    <a class="btn btn-orange offset-lg-3 col-lg-2 col-md-2 col-2 button" href="{{ route('formpemesanan') }}">Pesan Sekarang</a>
+						<h1 class="text-start col-lg-6 col-md-6 col-sm-6">RP. {{ $ruangan->harga }}/Jam</h1>
+                    <a class="btn btn-orange offset-lg-3 col-lg-2 col-md-2 col-2 button" href="{{ route('pesan', $ruangan->id) }}">Pesan Sekarang</a>
 					</div>
                 </div>
             </div>
@@ -80,18 +42,15 @@
 
 			<div class="row">
                 <div class="deskripsi col-lg-8">
-                    <h1>Ruangan Lab Korea</h1>
+                    <h1>{{ $ruangan->nama_ruangan }}</h1>
 					<br><br>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, ut totam. Sunt ipsum, alias quia, aspernatur id placeat perferendis corrupti aperiam magni omnis hic veniam, quaerat ipsa. Culpa, eaque pariatur!
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, ut totam. Sunt ipsum, alias quia, aspernatur id placeat perferendis corrupti aperiam magni omnis hic veniam, quaerat ipsa. Culpa, eaque pariatur!
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, ut totam. Sunt ipsum, alias quia, aspernatur id placeat perferendis corrupti aperiam magni omnis hic veniam, quaerat ipsa. Culpa, eaque pariatur!
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, ut totam. Sunt ipsum, alias quia, aspernatur id placeat perferendis corrupti aperiam magni omnis hic veniam, quaerat ipsa. Culpa, eaque pariatur!
+					{{ $ruangan->deskripsi }}
                 </div>
     
                 <div class="card justify-content-start jenis col-lg-3 mx-auto">
                     <h1 class="text-center">Jenis Ruangan</h1>
                     <ul>
-                        <li>Ruangan Besar</li>
+                        <li>{{ $ruangan->jenis_ruangan->jenis_ruangan }}</li>
                     </ul>
                 </div>
             </div>
