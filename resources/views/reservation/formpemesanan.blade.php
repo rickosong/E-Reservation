@@ -18,11 +18,12 @@
 
         <section class="row justify-content-center">
             <section class="col-sm-12 col-lg-7 col-md-12">
-                <form class="form-container" method="post">
+                <form class="form-container" method="post" action="{{ route('pesanruangan') }}">
                     <div class="form-group mb-3">
                         <h2>FORM PEMESANAN</h2>
+                        @csrf
                         <br /><br />
-                        <label for="ruangan" class="teks-kolom">Nama Ruangan:</label>
+                        <label for="ruangan" class="teks-kolom">Nama Ruangan :</label>
                         <input type="text" class="form-control" id="ruangan" aria-describedby="emailHelp" placeholder="Nama Ruangan" value="{{ $ruangan->nama_ruangan }}" readonly />
                     </div>
                     <div class="form-group mb-3">
@@ -32,22 +33,26 @@
                         <input type="hidden" class="form-control" name="iduser" value="{{ auth()->user()->id }}" />  
                     </div>
                     <div class="form-group mb-3">
-                        <label for="dari jam" class="teks-kolom">Pesan dari Jam:</label>
-                        <input type="datetime-local" class="form-control" id="dari jam" name="jamawal" placeholder="Jam Awal" />  
+                        <label for="dari jam" class="teks-kolom">Harga Ruangan :</label>
+                        <input type="number" class="form-control" id="dari jam" placeholder="Jam Awal" value="{{ $ruangan->harga }}"  readonly />  
                     </div>
                     <div class="form-group mb-3">
-                        <label for="sampai jam" class="teks-kolom">Sampai Jam:</label>
-                        <input type="datetime-local" class="form-control" id="sampai jam" name="jamakhir" placeholder="Jam Akhir" />  
+                        <label for="darijam" class="teks-kolom">Pesan dari Jam :</label>
+                        <input type="datetime-local" class="form-control" id="darijam" name="jamawal" placeholder="Jam Awal" />  
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="sampaijam" class="teks-kolom">Sampai Jam :</label>
+                        <input type="datetime-local" class="form-control" id="sampaijam" name="jamakhir" placeholder="Jam Akhir" />  
                     </div>         
                     <div class="row">
                         <button type="reset" class="btn btn-secondary col-6 col-md-5">
                             <i class="fa fa-undo" aria-hidden="true"></i> Kembali
                           </button>
-                        <button type="submit" class="btn tombol col-6 col-md-5 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                        <button type="button" class="btn tombol col-6 col-md-5 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan
                           </button>
                     </div>
-                </form>
+                
             </section>
         </section>
     </section>
@@ -66,21 +71,22 @@
                     <p>memesan : </p>
                     <br>
                     <!-- Nama Ruangan -->
-                    <p>Ruangan Lab Korea</p>
+                    <p>{{ $ruangan->nama_ruangan }}</p>
                     <br>
                     <!-- Jam Pemesanan -->
                     <p>Dari jam 8 sampai dengan jam 11</p>
                     <br>
                     <!-- Harga -->
-                    <p>Dengan harga total 150.000?</p>
+                    <p>Dengan harga total {{ $ruangan->harga }}?</p>
                     <br>
                     <p>Jika anda melakukan pembayaran dan ingin membatalkan pemesanan, maka anda tidak bisa lagi membatalkan pemesanan</p>
                     <br> <br> <br>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary col-md-5 " data-dismiss="modal"><span><i class="fa fa-reply" aria-hidden="true"></i></span> Kembali</button>
-                  <button type="submit" href="{{ route('invoice') }}" class="btn tombol col-md-5 ms-auto"><i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan</button>
+                  <button type="submit" class="btn tombol col-md-5 ms-auto"><i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan</button>
                 </div>
+            </form>
               </div>
             </div>
           </div>

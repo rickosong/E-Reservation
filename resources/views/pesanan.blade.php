@@ -124,21 +124,30 @@
                                                 <tr>
                                                     <th>Nama Member</th>
                                                     <th>Ruangan</th>
-                                                    <th>Tanggal Pemesanan</th>
+                                                    <th colspan="2">Tanggal Pemesanan (checkin & checkout)</th>
                                                     <th>Status</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                    <td>Muhammad Rizky</td>
-                                                    <td>Lab Korea</td>
-                                                    <td>5-1-2022 02:00 PM</td>
-                                                    <td class="success">Sudah Dibayar</td>
+                                                @foreach ($pesanans as $pesanan)
+                                                <tr>
+                                                    <td>{{ $pesanan->user->username }}</td>
+                                                    <td>{{ $pesanan->ruangan->nama_ruangan }}</td>
+                                                    <td>{{ $pesanan->checkin }}</td>
+                                                    <td>{{ $pesanan->checkout }}</td>
+                                                    @if ($pesanan->status_id == 1)
+                                                        <td class="success">Sudah Dibayar</td>
+                                                    @elseif($pesanan->status_id == 2)
+                                                        <td class="danger">Gagal Dibayar</td>
+                                                    @else
+                                                    <td class="warning">Belum Dibayar</td>
+                                                    @endif
                                                     <td> 
                                                     <a class="btn btn-primary" href="edit-pembayaran.php"> Edit</a>
                                                     <a class="btn btn-danger" href=""> Hapus</a> </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

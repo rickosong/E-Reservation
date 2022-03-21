@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\Ruangan;
@@ -11,7 +12,8 @@ class PesananController extends Controller
     public function index(){
         return view('pesanan', [
             "title" => "Dashboard Admin | Pesanan",
-            'photo' => Profile::where('user_id', auth()->user()->id)->get()
+            'photo' => Profile::where('user_id', auth()->user()->id)->get(),
+            'pesanans' => Penyewaan::all()
         ]);
     }
 
@@ -26,7 +28,43 @@ class PesananController extends Controller
     }
 
     public function store(Request $request){
-        $ruangan = Ruangan::find($id);
+        $penyewaan = New Penyewaan;
+
+        // dd($request->jamawal);
+
+        $penyewaan->ruangan_id = $request->idruangan;
+        $penyewaan->user_id = auth()->user()->id;
+        $penyewaan->checkin = $request->jamawal;
+        $penyewaan->checkout = $request->jamakhir;
+        $penyewaan->status_id = 3;
+
+        $penyewaan->save();
+        
+        // echo "<script>alert('Pemesanan Berhasil dilakukan');
+        //     Document.location.href = 'home.blade.php';
+        // </script>";
+
+        return redirect('/homepage/ruangan/pesan/invoice');
+
+    }
+
+    public function edit($id){
+        
+    }
+
+    public function update(Request $request, $id){
+
+    }
+
+    public function destroy($id){
+
+    }
+
+    public function invoice(){
+        return view('reservation.buktipemesanan', [
+            'penyewaans' => Penyewaan::all()->last(),
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);
     }
 
 }

@@ -16,8 +16,14 @@ class Penyewaan extends Model
         'status_id',
     ];
 
-    public function penyewaan(){
-        return $this->belongsTo(Jenis_Ruangan::class);
+    public function ruangan(){
+        return $this->belongsTo(Ruangan::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function status_pemesanan(){
+        return $this->belongsTo(Status_pemesanan::class);
     }
 
 }
