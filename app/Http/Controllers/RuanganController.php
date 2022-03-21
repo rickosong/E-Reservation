@@ -102,6 +102,7 @@ class RuanganController extends Controller
 
     public function indexHome(){
         return view('user.ruangan', [
+            'ruangans' => Ruangan::all(),
             'profiles' => Profile::where('user_id', auth()->user()->id)->get(),
         ]);
     }
