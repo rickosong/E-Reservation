@@ -62,7 +62,7 @@ class PesananController extends Controller
 
     public function invoice(){
         return view('reservation.buktipemesanan', [
-            'penyewaans' => Penyewaan::all()->last(),
+            'penyewaans' => Penyewaan::all(),
             'profiles' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }

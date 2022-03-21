@@ -79,7 +79,7 @@
 						<div class="card-body">
 							<h5 class="card-title m-1">{{ $ruangan->nama_ruangan }}</h5>
 							<h6 class="price">{{ $ruangan->harga }} </h4>
-							<a href="{{ route('post') }}" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
+							<a href="{{ route('login') }}" class="btn btn-card-info"><i class="fa fa-commenting-o" aria-hidden="true"></i> Info Selengkapnya</a>
 						</div>
 					</div>
 				</div>

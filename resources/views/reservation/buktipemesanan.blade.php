@@ -17,102 +17,75 @@
 
 <div class="container">
     <div class="card">
-        <div class="row">
-            <div class="col-lg-10 col-md-10 col-sm-7 col-8">
-                <h5><b>Bukti Pemesanan</b></h5>
-                <p>
-                    Nomor  : <span class="text-orange">Nomor Pemesan</span>
-                    <br>
-                    Tanggal : <span class="text-orange">Tanggal Pemesanan</span>
-                </p>
-            </div>
-
-            <div class="col-lg-2 col-md-2 col-sm-2 col-4">
-                <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-invoice">
-            </div>
+       @foreach ($penyewaans as $penyewaan)
+       <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-7 col-8">
+            <h5><b>Bukti Pemesanan</b></h5>
+            <p>
+                Nomor  : <span class="text-orange">Nomor Pemesan</span>
+                <br>
+                Tanggal : <span class="text-orange">Tanggal Pemesanan</span>
+            </p>
         </div>
-        <br><br>
 
+        <div class="col-lg-2 col-md-2 col-sm-2 col-4">
+            <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-invoice">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h5 class="bg-lightgrey"><b>Detail Pembayaran</b></h5>
+        <p>Pembelian Melalui : <span class="text-orange">COD</span></p>
+    </div>
+    <br><br>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h5 class="bg-lightgrey"><b>Data Pemesan</b></h5>
+            <p>
+                Nama   : <span class="text-orange">{{ $penyewaan->user->username }}</span>
+                <br>
+                Email    : <span class="text-orange">{{ $penyewaan->user->email }}</span>
+                <br>
+                No. Telp : <span class="text-orange">{{ $penyewaan->user->phone_number }}</span>
+            </p>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h5 class="bg-lightgrey"><b>Detail Perusahaan</b></h5>
+            <p>
+                Nama  : SMKN 2 Banjarmasin
+                <br>
+                Alamat : Jalan Brigjend Hasan Basri No.6, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan 70124
+            </p>
+        </div>
+    </div>
+    
+    <br><br>
+
+    <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <h5 class="bg-lightgrey"><b>Detail Pembayaran</b></h5>
-            <p>Pembelian Melalui : <span class="text-orange">COD</span></p>
+            <h5 class="bg-lightgrey"><b>Data Penyewaan</b></h5>
+            <p>
+                Nama Ruangan               : <span class="text-orange">{{ $penyewaan->ruangan->nama_ruangan }}</span>
+                <br>
+                Tanggal/Waktu Check-in  : <span class="text-orange">{{ $penyewaan->checkin }}</span>
+                <br>
+                Tanggal/Waktu Check-out : <span class="text-orange">{{ $penyewaan->checkout }}</span>
+            </p>
         </div>
-        <br><br>
+        <br><br><br><br>
 
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5 class="bg-lightgrey"><b>Data Pemesan</b></h5>
-                <p>
-                    Nama   : <span class="text-orange">Nama Pemesan</span>
-                    <br>
-                    Email    : <span class="text-orange">Email Pemesan</span>
-                    <br>
-                    No. Telp : <span class="text-orange">Nomor Telepon Pemesan</span>
-                </p>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5 class="bg-lightgrey"><b>Detail Perusahaan</b></h5>
-                <p>
-                    Nama  : SMKN 2 Banjarmasin
-                    <br>
-                    Alamat : Jalan Brigjend Hasan Basri No.6, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan 70124
-                </p>
-            </div>
+        <div class="col-lg-3 col-md-3 col-sm-5 offset-lg-9 offset-sm-7">
+            <small class="text-black">*Syarat dan Ketentuan Berlaku</small>
         </div>
 
-        <!-- <div class="row bg-lightgrey">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5><b>Data Pemesan</b></h5>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <h5><b>Detail perusahaan</b></h5>
-            </div>
+        <div class="col-lg-1 col-md-1 col-sm-5 offset-lg-10 offset-sm-7">
+            <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-stempel">
         </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <p>
-                    Nama   : <span class="text-orange">Nama Pemesan</span>
-                    <br>
-                    Email    : <span class="text-orange">Email Pemesan</span>
-                    <br>
-                    No. Telp : <span class="text-orange">Nomor Telepon Pemesan</span>
-                </p>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <p>
-                    Nama  : SMKN 2 Banjarmasin
-                    <br>
-                    Alamat : Jalan Brigjend Hasan Basri No.6, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin, Kalimantan Selatan 70124
-                </p>
-            </div>
-        </div> -->
-        <br><br>
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <h5 class="bg-lightgrey"><b>Data Penyewaan</b></h5>
-                <p>
-                    Nama Ruangan               : <span class="text-orange">Nama Ruangan</span>
-                    <br>
-                    Tanggal/Waktu Check-in  : <span class="text-orange">Waktu Check-in</span>
-                    <br>
-                    Tanggal/Waktu Check-out : <span class="text-orange">Waktu  Check-out</span>
-                </p>
-            </div>
-            <br><br><br><br>
-
-            <div class="col-lg-3 col-md-3 col-sm-5 offset-lg-9 offset-sm-7">
-                <small class="text-black">*Syarat dan Ketentuan Berlaku</small>
-            </div>
-
-            <div class="col-lg-1 col-md-1 col-sm-5 offset-lg-10 offset-sm-7">
-                <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-stempel">
-            </div>
-        </div>
+    </div>
+       @endforeach
     </div>
     <br><br><br><br>
 </div>
