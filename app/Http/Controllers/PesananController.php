@@ -6,6 +6,7 @@ use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\Ruangan;
+use Carbon\Carbon;
 
 class PesananController extends Controller
 {
@@ -44,7 +45,7 @@ class PesananController extends Controller
         //     Document.location.href = 'home.blade.php';
         // </script>";
 
-        return redirect('/homepage/ruangan/pesan/invoice');
+        return redirect('/homepage/pesan/invoice');
 
     }
 

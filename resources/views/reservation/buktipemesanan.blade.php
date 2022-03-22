@@ -44,7 +44,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6">
             <h5 class="bg-lightgrey"><b>Data Pemesan</b></h5>
             <p>
-                Nama   : <span class="text-orange">{{ $penyewaan->user->username }}</span>
+                Nama   : <span class="text-orange">{{ $penyewaan->user->name }}</span>
                 <br>
                 Email    : <span class="text-orange">{{ $penyewaan->user->email }}</span>
                 <br>

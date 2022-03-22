@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('ruangan_id')->constrained('ruangans');
             $table->foreignId('user_id')->constrained('users');
+            $table->string('nomorpemesan');
+            $table->dateTimeTz('tanggalpemesanan');
             $table->dateTimeTz('checkin');
             $table->dateTimeTz('checkout');
             $table->foreignId('status_id')->constrained('status_pemesanans');
