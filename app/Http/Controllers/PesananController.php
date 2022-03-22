@@ -11,6 +11,13 @@ use Carbon\Carbon;
 class PesananController extends Controller
 {
     public function index(){
+
+        // Penyewaan::where('checkout' <= date('Y'))
+        // $date = Carbon::now()
+        date_default_timezone_set("Asia/Makassar");
+        $date = date('Y/m/d H/i/s');
+        dd($date);
+
         return view('pesanan', [
             "title" => "Dashboard Admin | Pesanan",
             'photo' => Profile::where('user_id', auth()->user()->id)->get(),
