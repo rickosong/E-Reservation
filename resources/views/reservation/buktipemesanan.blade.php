@@ -22,9 +22,9 @@
         <div class="col-lg-10 col-md-10 col-sm-7 col-8">
             <h5><b>Bukti Pemesanan</b></h5>
             <p>
-                Nomor  : <span class="text-orange">Nomor Pemesan</span>
+                Nomor  : <span class="text-orange">{{ $penyewaan->nomorpemesan }}</span>
                 <br>
-                Tanggal : <span class="text-orange">Tanggal Pemesanan</span>
+                Tanggal : <span class="text-orange">{{ $penyewaan->tanggalpemesanan }}</span>
             </p>
         </div>
 

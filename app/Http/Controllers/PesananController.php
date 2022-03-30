@@ -15,7 +15,7 @@ class PesananController extends Controller
         // $date = Carbon::now()
         date_default_timezone_set("Asia/Makassar");
         $date = date('Y/m/d H/i');
-        Penyewaan::where('checkout', '<=', date('Y-m-d H:i'))->where('status_id', 3)->update(['status_id' => 2]);
+        Penyewaan::where('checkin', '<=', date('Y-m-d H:i'))->where('status_id', 3)->update(['status_id' => 2]);
         // dd($date);
 
         return view('pesanan', [
