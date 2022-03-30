@@ -65,6 +65,16 @@
 
             <div class="panel-body">
                                     <div class="table-responsive">
+                                        @if (session()->has('update'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('update') }}
+                                          </div>
+                                        @endif
+                                        @if (session()->has('delete'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ session('delete') }}
+                                          </div>
+                                        @endif
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
@@ -89,8 +99,13 @@
                                                     <td class="warning">Belum Dibayar</td>
                                                     @endif
                                                     <td> 
-                                                    <a class="btn btn-primary" href="edit-pembayaran.php"> Edit</a>
-                                                    <a class="btn btn-danger" href=""> Hapus</a> </td>
+                                                    <a class="btn btn-primary" href="{{ route('editpesanan', $pesanan->id) }}"> Edit</a>
+                                                    <form action="{{ route('hapuspesanan', $pesanan->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" onclick="return confirm('apakah anda ingin menghapus pesanan ini?')">Hapus</button> 
+                                                    </form>
+                                                </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

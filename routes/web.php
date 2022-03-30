@@ -81,3 +81,6 @@ Route::put('/ruangan/update/{ruangan:id}', [RuanganController::class, 'update'])
 // Admin-Ruangan
 // Admin-Pesanan
 Route::get('/pesanan', [PesananController::class, 'index'])->name ('pesanan')->middleware('auth', 'isAdmin');
+Route::get('/pesanan/editpesanan/{penyewaan:id}', [PesananController::class, 'edit'])->name ('editpesanan')->middleware('auth', 'isAdmin');
+Route::put('/pesanan/updatepesanan/{penyewaan:id}', [PesananController::class, 'update'])->name ('updatepesanan')->middleware('auth', 'isAdmin');
+Route::delete('/pesanan/hapuspesanan/{penyewaan:id}', [PesananController::class, 'destroy'])->name ('hapuspesanan')->middleware('auth', 'isAdmin');

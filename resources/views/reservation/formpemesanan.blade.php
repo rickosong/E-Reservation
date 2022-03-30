@@ -23,8 +23,6 @@
                         <h2>FORM PEMESANAN</h2>
                         @csrf
                         <br /><br />
-                        <label for="ruangan" class="teks-kolom">Nama Ruangan :</label>
-                        <input type="text" class="form-control" id="ruangan" aria-describedby="emailHelp" placeholder="Nama Ruangan" value="{{ $ruangan->nama_ruangan }}" readonly />
                     </div>
                     <div class="form-group mb-3">
                         <input type="hidden" class="form-control" name="idruangan" value="{{ $ruangan->id }}" />  
@@ -38,11 +36,13 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="darijam" class="teks-kolom">Pesan dari Jam :</label>
-                        <input type="datetime-local" class="form-control" id="darijam" name="jamawal" placeholder="Jam Awal" />  
+                        <input type="datetime-local" class="form-control" id="darijam" name="jamawal" placeholder="Jam Awal" />
+                        <small>isi dari kapan anda mau memesan ruangannya</small>  
                     </div>
                     <div class="form-group mb-3">
                         <label for="sampaijam" class="teks-kolom">Sampai Jam :</label>
                         <input type="datetime-local" class="form-control" id="sampaijam" name="jamakhir" placeholder="Jam Akhir" />  
+                        <small>isi sampai kapan anda mau memesan ruangannya</small>  
                     </div>         
                     <div class="row">
                         <button type="reset" class="btn btn-secondary col-6 col-md-5">

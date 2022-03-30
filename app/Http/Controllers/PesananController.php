@@ -6,6 +6,7 @@ use App\Models\Penyewaan;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\Ruangan;
+use App\Models\Status_pemesanan;
 use Carbon\Carbon;
 
 class PesananController extends Controller
@@ -70,20 +71,38 @@ class PesananController extends Controller
     }
 
     public function edit($id){
-        
+        $penyewaan = Penyewaan::find($id);
+
+        return view('edit-pembayaran', [
+            'pesanan' => $penyewaan,
+            'status' => Status_pemesanan::all(),
+            'photo' => Profile::where('user_id', auth()->user()->id)->get(),
+        ]);
+
     }
 
     public function update(Request $request, $id){
+        $penyewaan = Penyewaan::find($id);
+        
+        $penyewaan->status_id = $request->status;
 
+        $penyewaan->update();
+        return redirect('/pesanan');
+        return session()->flash('update', 'update pesanan berhasil');
+        
     }
 
     public function destroy($id){
+        $penyewaan = Penyewaan::find($id);
 
+        $penyewaan->delete();
+
+        return back()->with('delete', 'delete pesanan berhasil');
     }
 
     public function invoice(){
         return view('reservation.buktipemesanan', [
-            'penyewaans' => Penyewaan::all(),
+            'penyewaans' => Penyewaan::latest()->where('user_id', auth()->user()->id)->get()->take(1),
             'profiles' => Profile::where('user_id', auth()->user()->id)->get()
         ]);
     }
