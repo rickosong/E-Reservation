@@ -106,7 +106,12 @@ class PesananController extends Controller
     }
 
     public function invoice($id){
-        
+        $pesanan = Penyewaan::find($id);
+
+        return view('reservation.invoice', [
+            'penyewaan' => $pesanan,
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);      
     }
 
 }

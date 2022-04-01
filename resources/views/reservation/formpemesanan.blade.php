@@ -36,12 +36,12 @@
                         <input type="number" class="form-control" id="dari jam" placeholder="Jam Awal" value="{{ $ruangan->harga }}"  readonly />  
                     </div>
                     <div class="form-group mb-3">
-                        <label for="darijam" class="teks-kolom">Pesan dari Jam :</label>
+                        <label for="darijam" class="teks-kolom">Pesan dari :</label>
                         <input type="datetime-local" class="form-control" id="darijam" name="jamawal" placeholder="Jam Awal" />
                         <small>isi dari kapan anda mau memesan ruangannya</small>  
                     </div>
                     <div class="form-group mb-3">
-                        <label for="sampaijam" class="teks-kolom">Sampai Jam :</label>
+                        <label for="sampaijam" class="teks-kolom">Sampai :</label>
                         <input type="datetime-local" class="form-control" id="sampaijam" name="jamakhir" placeholder="Jam Akhir" />  
                         <small>isi sampai kapan anda mau memesan ruangannya</small>  
                     </div>         
@@ -49,7 +49,7 @@
                         <button type="reset" class="btn btn-secondary col-6 col-md-5">
                             <i class="fa fa-undo" aria-hidden="true"></i> Kembali
                           </button>
-                        <button type="button" class="btn tombol col-6 col-md-5 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                        <button type="button" id="pesan" class="btn tombol col-6 col-md-5 ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                             <i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan
                           </button>
                     </div>
@@ -75,16 +75,16 @@
                     <p>{{ $ruangan->nama_ruangan }}</p>
                     <br>
                     <!-- Jam Pemesanan -->
-                    <p>Dari jam 8 sampai dengan jam 11</p>
+                    <p>Dari <span id="isijamawal"></span> sampai dengan <span id="isijamakhir"></span> </p>
                     <br>
                     <!-- Harga -->
-                    <p>Dengan harga total {{ $ruangan->harga }}?</p>
+                    <p>Dengan harga total {{ $ruangan->harga }} per jam?</p>
                     <br>
                     <p>Jika anda melakukan pembayaran dan ingin membatalkan pemesanan, maka anda tidak bisa lagi membatalkan pemesanan</p>
                     <br> <br> <br>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary col-md-5 " data-dismiss="modal"><span><i class="fa fa-reply" aria-hidden="true"></i></span> Kembali</button>
+                  <button type="" class="btn btn-secondary col-md-5 " data-dismiss="modal"><span><i class="fa fa-reply" aria-hidden="true"></i></span> Kembali</button>
                   <button type="submit" class="btn tombol col-md-5 ms-auto"><i class="fa fa-envelope-o" aria-hidden="true"></i> Pesan</button>
                 </div>
             </form>
@@ -98,5 +98,16 @@
 
     <!-- script js -->
     @include('partials.linkJS')
+    <script>
+        var pesan = document.getElementById('pesan').addEventListener('click', hitung);
+        
+        function hitung() {
+            var jamAwal = document.getElementById('darijam').value;
+            var jamAkhir = document.getElementById('sampaijam').value;
+
+            document.getElementById('isijamawal').innerHTML = jamAwal;
+            document.getElementById('isijamakhir').innerHTML = jamAkhir;
+        }
+    </script>
 </body>
 </html>

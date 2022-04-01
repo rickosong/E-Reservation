@@ -17,50 +17,25 @@
         <div class="container">
             <h1 class="text-center">Ruangan Yang Dipesan</h1>
             <br><br>
+            @forelse ($allpesanan as $pesanan)
             <div class="card">
                 <!-- <h5 class="card-header">Featured</h5> -->
                 <div class="card-body">
                     <div class="row">
-                        <img class="col-lg-2 img-thumbnail" src="../img/img2.jpg" alt="">
+                        <img class="col-lg-2 img-thumbnail" src="{{ asset('img/') }}/{{ $pesanan->ruangan->image }}" alt="">
                         <div class="col-lg-10">
-                            <h5 class="card-title">Ruang 1</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt inventore ea aliquam nemo tenetur eaque quae, minima ab et provident, deserunt commodi? Aspernatur facere deserunt unde amet, pariatur atque. Molestias?</p>
-                            <a href="#" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
+                            <h5 class="card-title">{{ $pesanan->ruangan->nama_ruangan }}</h5>
+                            <p class="card-text">{{ $pesanan->ruangan->deskripsi }}</p>
+                            <a href="{{ route('invoice', $pesanan->id) }}" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-
-            <div class="card">
-                <!-- <h5 class="card-header">Featured</h5> -->
-                <div class="card-body">
-                    <div class="row">
-                        <img class="col-lg-2 img-thumbnail" src="../img/img2.jpg" alt="">
-                        <div class="col-lg-10">
-                            <h5 class="card-title">Ruang 2</h5>
-                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus consequuntur, accusantium consectetur porro vel, quisquam cum asperiores id sint sapiente praesentium. Molestiae sunt ipsum debitis? Magni pariatur illo temporibus libero!</p>
-                            <a href="#" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div class="card">
-                <!-- <h5 class="card-header">Featured</h5> -->
-                <div class="card-body">
-                    <div class="row">
-                        <img class="col-lg-2 img-thumbnail" src="../img/img2.jpg" alt="">
-                        <div class="col-lg-10">
-                            <h5 class="card-title">Ruang 3</h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias sapiente impedit aut eius ut culpa qui eum, error iste ex mollitia, dolorem provident obcaecati eaque laborum, optio inventore iure vitae.</p>
-                            <a href="#" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
+            @empty
+                <h3 class="text-center">Anda Belum Memesan Ruangan Apapun</h3>
+            @endforelse
+            <br><br>
         </div>
         <br><br><br><br>
         <!-- content end -->

@@ -30,6 +30,7 @@ use App\Http\Controllers\User\profileController;
 Route::get('/homepage/ruangan/{ruangan:id}', [RuanganController::class, 'show'])->name('post')->middleware('auth');
 Route::get('/homepage/pesan/{ruangan:id}', [PesananController::class, 'create'])->name('pesan')->middleware('auth');
 Route::post('/homepage/pesan/{ruangan:id}', [PesananController::class, 'store'])->name('pesanruangan')->middleware('auth');
+Route::get('homepage/invoice/{pesanan:id}', [PesananController::class, 'invoice'])->name('invoice')->middleware('auth');
 
 
 // Auth
