@@ -86,7 +86,7 @@
                                             <i class="fa fa-credit-card fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">12</div>
+                                            <div class="huge">{{ $pesanandibayar }}</div>
                                             <div>Pesanan Dibayar</div>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                             <i class="fa fa-shopping-cart fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">124</div>
+                                            <div class="huge">{{ $pesanan }}</div>
                                             <div>Pesanan Baru</div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@
 <script src="{{ asset('startmin-master/js/bootstrap.min.js') }} "></script>
 
 <!-- Metis Menu Plugin JavaScript -->
-<script src="{{ asset(' startmin-master/js/metisMenu.min.js') }}"></script>
+<script src="{{ asset('startmin-master/js/metisMenu.min.js') }}"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src=" {{ asset('startmin-master/js/startmin.js') }}"></script>

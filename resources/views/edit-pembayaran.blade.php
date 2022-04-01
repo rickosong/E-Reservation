@@ -81,7 +81,9 @@
                                                     <select class="form-control" name="status">
                                                         <option selected="true" disabled="disabled"> ---- </option>
                                                         @foreach ($status as $s)
-                                                            <option value="{{ $s->id }}">{{ $s->jenis_status }}</option>
+                                                            @if ($s->id !== 2)
+                                                                <option value="{{ $s->id }}">{{ $s->jenis_status }}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>

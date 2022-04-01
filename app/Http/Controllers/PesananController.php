@@ -105,4 +105,8 @@ class PesananController extends Controller
         return back()->with('delete', 'delete pesanan berhasil');
     }
 
+    public function invoice($id){
+        
+    }
+
 }

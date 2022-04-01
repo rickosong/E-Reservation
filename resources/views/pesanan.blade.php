@@ -98,14 +98,24 @@
                                                     @else
                                                     <td class="warning">Belum Dibayar</td>
                                                     @endif
-                                                    <td> 
-                                                    <a class="btn btn-primary" href="{{ route('editpesanan', $pesanan->id) }}"> Edit</a>
-                                                    <form action="{{ route('hapuspesanan', $pesanan->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger" onclick="return confirm('apakah anda ingin menghapus pesanan ini?')">Hapus</button> 
-                                                    </form>
-                                                </td>
+                                                    @if ($pesanan->status_id == 2)
+                                                        <td>
+                                                            <form action="{{ route('hapuspesanan', $pesanan->id) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger" onclick="return confirm('apakah anda ingin menghapus pesanan ini?')">Hapus</button> 
+                                                                </form>
+                                                        </td>
+                                                    @else
+                                                        <td> 
+                                                            <a class="btn btn-primary" href="{{ route('editpesanan', $pesanan->id) }}"> Edit</a>
+                                                            <form action="{{ route('hapuspesanan', $pesanan->id) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger" onclick="return confirm('apakah anda ingin menghapus pesanan ini?')">Hapus</button> 
+                                                            </form>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                                 @endforeach
                                             </tbody>

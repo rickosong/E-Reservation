@@ -25,7 +25,8 @@
                         <br /><br />
                     </div>
                     <div class="form-group mb-3">
-                        {{-- <input type="hidden" class="form-control" name="idruangan" value="{{ $ruangan->id }}" />   --}}
+                        <label for="dari jam" class="teks-kolom">Nama Ruangan :</label>
+                        <input type="text" class="form-control" id="dari jam" placeholder="Jam Awal" value="{{ $ruangan->nama_ruangan }}"  readonly />  
                     </div>
                     <div class="form-group mb-3">
                         <input type="hidden" class="form-control" name="iduser" value="{{ auth()->user()->id }}" />  

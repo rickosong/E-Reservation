@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ruangan;
 use App\Models\Jenis_Ruangan;
 use App\Models\Profile;
+use App\Models\Penyewaan;
 
 class RuanganController extends Controller
 {
@@ -46,12 +47,22 @@ class RuanganController extends Controller
     }
 
     public function show($id){
+        date_default_timezone_set("Asia/Makassar");
+        $date = date('Y/m/d H/i');
         $ruangan = Ruangan::find($id);
+        $pesanan = false;
 
-        return view('reservation.post', [
-            'ruangan' => $ruangan,
-            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
-        ]);
+        if ($pesanan == true) {
+            return view('user.cekpesanan', [
+                'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+            ]);
+        }
+        else{
+            return view('reservation.post', [
+                'ruangan' => $ruangan,
+                'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+            ]);
+        }
 
     }
 
