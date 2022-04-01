@@ -29,8 +29,7 @@ use App\Http\Controllers\User\profileController;
 // reservasi
 Route::get('/homepage/ruangan/{ruangan:id}', [RuanganController::class, 'show'])->name('post')->middleware('auth');
 Route::get('/homepage/pesan/{ruangan:id}', [PesananController::class, 'create'])->name('pesan')->middleware('auth');
-Route::post('/homepage/pesan', [PesananController::class, 'store'])->name('pesanruangan')->middleware('auth');
-Route::get('/homepage/pesanan/invoice', [PesananController::class, 'invoice'])->name('invoice')->middleware('auth');
+Route::post('/homepage/pesan/{ruangan:id}', [PesananController::class, 'store'])->name('pesanruangan')->middleware('auth');
 
 
 // Auth

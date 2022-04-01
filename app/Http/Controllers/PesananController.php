@@ -36,7 +36,7 @@ class PesananController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         date_default_timezone_set("Asia/Makassar");
         $date = date('Y/m/d H/i');
 
@@ -48,11 +48,13 @@ class PesananController extends Controller
             $str .= $characters[$rand];
         }
 
+        $ruangan = Ruangan::find($id);
+
         $penyewaan = New Penyewaan;
 
-        // dd($request->jamawal);
+        // dd($request);
 
-        $penyewaan->ruangan_id = $request->idruangan;
+        $penyewaan->ruangan_id = $ruangan->id;
         $penyewaan->user_id = auth()->user()->id;
         $penyewaan->nomorpemesan = auth()->user()->id . $str . date('d');
         $penyewaan->tanggalpemesanan = $date;
@@ -66,7 +68,10 @@ class PesananController extends Controller
         //     Document.location.href = 'home.blade.php';
         // </script>";
 
-        return redirect('/homepage/pesan/invoice');
+        return view('reservation.buktipemesanan', [
+            'penyewaans' => Penyewaan::latest()->where('user_id', auth()->user()->id)->get()->take(1),
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+        ]);
 
     }
 
@@ -98,13 +103,6 @@ class PesananController extends Controller
         $penyewaan->delete();
 
         return back()->with('delete', 'delete pesanan berhasil');
-    }
-
-    public function invoice(){
-        return view('reservation.buktipemesanan', [
-            'penyewaans' => Penyewaan::latest()->where('user_id', auth()->user()->id)->get()->take(1),
-            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
-        ]);
     }
 
 }

@@ -18,14 +18,14 @@
 
         <section class="row justify-content-center">
             <section class="col-sm-12 col-lg-7 col-md-12">
-                <form class="form-container" method="post" action="{{ route('pesanruangan') }}">
+                <form class="form-container" method="post" action="{{ route('pesanruangan', $ruangan->id) }}">
                     <div class="form-group mb-3">
                         <h2>FORM PEMESANAN</h2>
                         @csrf
                         <br /><br />
                     </div>
                     <div class="form-group mb-3">
-                        <input type="hidden" class="form-control" name="idruangan" value="{{ $ruangan->id }}" />  
+                        {{-- <input type="hidden" class="form-control" name="idruangan" value="{{ $ruangan->id }}" />   --}}
                     </div>
                     <div class="form-group mb-3">
                         <input type="hidden" class="form-control" name="iduser" value="{{ auth()->user()->id }}" />  
