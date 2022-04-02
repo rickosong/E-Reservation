@@ -31,6 +31,7 @@ Route::get('/homepage/ruangan/{ruangan:id}', [RuanganController::class, 'show'])
 Route::get('/homepage/pesan/{ruangan:id}', [PesananController::class, 'create'])->name('pesan')->middleware('auth');
 Route::post('/homepage/pesan/{ruangan:id}', [PesananController::class, 'store'])->name('pesanruangan')->middleware('auth');
 Route::get('homepage/invoice/{pesanan:id}', [PesananController::class, 'invoice'])->name('invoice')->middleware('auth');
+Route::get('invoice/pdf/{pesanan:id}', [PesananController::class, 'invoicepdf'])->name('pdf')->middleware('auth');
 
 
 // Auth

@@ -14,8 +14,25 @@
         @include('partials.navbar')
 
         <!-- content -->
-
-<div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col justify-content-end">
+                    @foreach ($penyewaans as $penyewaan)
+                    @if ($penyewaan->status_id == 2)
+                    <button type="button" class="btn btn-orange" onclick="alert('anda tidak bisa mencetak invoice ini karena anda terlambat membayar sehingga invoice ini sudah expired')">Cetak PDF</button>
+                @else
+                    <button onclick="generatePDF()" class="btn btn-orange">Cetak PDF</button>
+                @endif
+                    @endforeach
+                </div>
+            </div>
+            <br>
+<div class="container" id="invoice">
+    @if (session()->has('belumbayar'))
+    <div class="alert alert-warning" role="alert-dissmissable">
+        {{ session('belumbayar') }}
+      </div>
+    @endif
     <div class="card">
        @foreach ($penyewaans as $penyewaan)
        <div class="row">
@@ -29,6 +46,7 @@
         </div>
 
         <div class="col-lg-2 col-md-2 col-sm-2 col-4">
+            
             <img src="{{ asset('img/smkn2.png') }}" alt="" class="img-invoice">
         </div>
     </div>
@@ -93,6 +111,16 @@
         <!-- content end -->
 
         @include('partials.linkJS')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            function generatePDF(){
+                const invoice = document.getElementById('invoice');
+
+                html2pdf()
+                .from(invoice)
+                .save();
+            }
+        </script>
 
 </body>
 </html>

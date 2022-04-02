@@ -80,6 +80,7 @@
                                                 <tr>
                                                     <th>Nama Member</th>
                                                     <th>Ruangan</th>
+                                                    <th>Nomor Pemesanan</th>
                                                     <th>Tanggal Pemesanan</th>
                                                     <th>Status</th>
                                                     <th>Aksi</th>
@@ -88,8 +89,9 @@
                                             <tbody>
                                                 @foreach ($pesanans as $pesanan)
                                                 <tr>
-                                                    <td>{{ $pesanan->user->username }}</td>
+                                                    <td>{{ $pesanan->user->name }}</td>
                                                     <td>{{ $pesanan->ruangan->nama_ruangan }}</td>
+                                                    <td>{{ $pesanan->nomorpemesan }}</td>
                                                     <td>{{ $pesanan->tanggalpemesanan }}</td>
                                                     @if ($pesanan->status_id == 1)
                                                         <td class="success">Sudah Dibayar</td>

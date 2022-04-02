@@ -8,6 +8,14 @@ use App\Models\Profile;
 use App\Models\Ruangan;
 use App\Models\Status_pemesanan;
 use Carbon\Carbon;
+// use PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+// require 'vendor/autoload.php';
+// require_once 'dompdf/autoload.inc.php';
+
+
+set_time_limit(300);
 
 class PesananController extends Controller
 {
@@ -63,15 +71,13 @@ class PesananController extends Controller
         $penyewaan->status_id = 3;
 
         $penyewaan->save();
-        
-        // echo "<script>alert('Pemesanan Berhasil dilakukan');
-        //     Document.location.href = 'home.blade.php';
-        // </script>";
 
         return view('reservation.buktipemesanan', [
             'penyewaans' => Penyewaan::latest()->where('user_id', auth()->user()->id)->get()->take(1),
-            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get(),
         ]);
+        
+        return session()->flash('belumbayar', 'anda belum membayar pesanan ini, segera bayar sebelum' . $request->jamawal);
 
     }
 
@@ -108,10 +114,38 @@ class PesananController extends Controller
     public function invoice($id){
         $pesanan = Penyewaan::find($id);
 
-        return view('reservation.invoice', [
+        return view('reservation.bukti', [
             'penyewaan' => $pesanan,
-            'profiles' => Profile::where('user_id', auth()->user()->id)->get()
-        ]);      
+            'profiles' => Profile::where('user_id', auth()->user()->id)->get(),
+        ]);
+
+        if ($pesanan->status_id == 1) {
+            return session()->flash('suksesbayar', 'anda telah membayar pesanan ini');
+       }
+       elseif ($pesanan->status_id == 3) {
+           return session()->flash('belumbayar', 'anda belum membayar pesanan ini, segera bayar sebelum' . $pesanan->checkin);
+       }
+       else {
+           return session()->flash('gagalbayar', 'anda gagal memesan ruangan pesanan ini karena telat membayar, silahkan pesan lagi');
+       }
+    }
+
+    public function invoicepdf($id){
+        $penyewaan = Penyewaan::find($id);
+        // $options = new Options();
+        // $options->set('isRemoteEnabled',true);      
+        $dompdf = new Dompdf(array('enable_remote' => true));
+        // $dompdf->loadHtml('hello world');
+
+        $invoice = view('reservation.invoice', compact('penyewaan'));
+
+        $dompdf->loadHtml($invoice);
+        // $dompdf->loadHtmlFile()
+
+        $dompdf->setPaper('A4', 'portrait');
+
+        $dompdf->render();
+        $dompdf->stream('invoice.pdf');
     }
 
 }

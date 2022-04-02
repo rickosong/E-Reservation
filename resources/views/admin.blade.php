@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-xs-9 text-right">
                                             <div class="huge">{{ $pesanan }}</div>
-                                            <div>Pesanan Baru</div>
+                                            <div>Pesanan</div>
                                         </div>
                                     </div>
                                 </div>

@@ -25,6 +25,13 @@
                         <img class="col-lg-2 img-thumbnail" src="{{ asset('img/') }}/{{ $pesanan->ruangan->image }}" alt="">
                         <div class="col-lg-10">
                             <h5 class="card-title">{{ $pesanan->ruangan->nama_ruangan }}</h5>
+                            @if ($pesanan->status_id == 1)
+                            <small><strong class="text-success">Pesanan Berhasil!</strong></small>
+                            @elseif($pesanan->status_id == 2)
+                            <small><strong class="text-danger">Pesanan Gagal</strong></small>
+                            @else
+                            <small><strong class="text-warning">Menunggu Pembayaran</strong></small>
+                            @endif
                             <p class="card-text">{{ $pesanan->ruangan->deskripsi }}</p>
                             <a href="{{ route('invoice', $pesanan->id) }}" class="btn btn-orange"><span><i class="fa fa-commenting-o" aria-hidden="true"></i> </span> Lihat Selengkapnya</a>
                         </div>
