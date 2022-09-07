@@ -70,7 +70,7 @@
 							<input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan Nomor HP Anda" required />
 							<a href="{{ route('login') }}"><small class="text-cl-sm">Sudah punya akun? Klik DIsini Untuk Login!</small></a
 							><br />
-							<a href="register.html"><small class="text-cl-sm">Forgot Password?</small></a>
+							<a href="{{ route('search') }}"><small class="text-cl-sm">Forgot Password?</small></a>
 						</div>
 						<div class="d-grid gap-2">
 							<button type="submit" class="tombol btn btn-block" 
